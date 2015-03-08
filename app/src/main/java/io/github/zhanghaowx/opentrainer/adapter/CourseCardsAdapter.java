@@ -40,8 +40,9 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final CourseCardViewBean itemCardView = mListItemsCard.get(position);
         holder.itemView.setTag(itemCardView);
-        Log.d(TAG, "Load Image into ViewHolder " + holder.mImageView);
-
+        /**
+         * Download and show images in card
+         */
         Picasso.with(holder.mImageView.getContext())
                 .load(itemCardView.getImageUrl())
                 .error(R.drawable.placeholder_card_view)

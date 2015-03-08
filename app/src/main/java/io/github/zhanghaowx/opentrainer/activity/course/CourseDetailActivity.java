@@ -71,10 +71,14 @@ public class CourseDetailActivity extends BaseActivity implements ObservableScro
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+        float alpha = 1 - Math.max(0.0f, mParallaxImageHeight - scrollY) / mParallaxImageHeight;
+        alpha = Math.min(0.9f, alpha);
+
         // color of the toolbar changes when user scrolls
         int baseColor = getResources().getColor(R.color.theme_dialer_primary);
-        float alpha = 1 - (float) Math.max(0, mParallaxImageHeight - scrollY) / mParallaxImageHeight;
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
+
+        // parallax scrolling
         ViewHelper.setTranslationY(mImageView, scrollY / 2);
     }
 
