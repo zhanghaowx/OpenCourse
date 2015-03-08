@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "io.ourteam.myapplication"
+        applicationId "io.github.zhanghaowx.opentrainer"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
@@ -21,6 +21,18 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    /***** Android Dependencies *****/
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:recyclerview-v7:21.0.0'
+    compile 'com.android.support:cardview-v7:21.0.0'
+    /***** External Dependencies *****/
+    // Interactive paging indicator widget, compatible with the ViewPager
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    // An enhanced Guava-based event bus with emphasis on Android support
+    compile 'com.squareup:otto:1.3.6'
+    // Android floating action button which reacts on scrolling events
+    compile 'com.melnykov:floatingactionbutton:1.1.0'
+    // A powerful image downloading and caching library for Android
+    compile 'com.squareup.picasso:picasso:2.5.0'
 }

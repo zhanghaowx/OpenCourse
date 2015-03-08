@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fragment Names -->
+    <string name="fragment_names_fragment1">Fragment 1</string>
+
+    <!-- Drawer Menu -->
+    <string name="fragment_drawerMenu_item_myAccount">我的账户</string>
+    <string name="fragment_drawerMenu_text_notification">提醒</string>
+    <string name="fragment_drawerMenu_item_settings">设置</string>
+
+    <string-array name="fragment_drawerMenu_title">
+        <item>@string/fragment_drawerMenu_item_myAccount</item>
+        <item>@string/fragment_drawerMenu_item_settings</item>
+        <item>@string/fragment_drawerMenu_text_notification</item>
+    </string-array>
+
+    <!-- Course / Sections Tabs -->
+    <string name="fragment_courseList_title_popular">热门课程</string>
+    <string name="fragment_courseList_title_nearby">附近课程</string>
+    <string name="fragment_courseList_title_favorite">收藏</string>
+
+    <string-array name="fragment_courseList_sections_tabs_title">
+        <item>@string/fragment_courseList_title_popular</item>
+        <item>@string/fragment_courseList_title_nearby</item>
+        <item>@string/fragment_courseList_title_favorite</item>
+    </string-array>
+</resources>
