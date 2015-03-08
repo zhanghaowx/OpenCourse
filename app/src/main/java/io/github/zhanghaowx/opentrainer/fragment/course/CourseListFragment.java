@@ -1,53 +1,59 @@
 package io.github.zhanghaowx.opentrainer.fragment.course;
 
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.astuetz.PagerSlidingTabStrip;
+import com.melnykov.fab.FloatingActionButton;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import io.github.zhanghaowx.opentrainer.R;
-import io.github.zhanghaowx.opentrainer.adapter.CourseListAdapter;
+import io.github.zhanghaowx.opentrainer.adapter.CourseCardsAdapter;
 import io.github.zhanghaowx.opentrainer.fragment.core.BaseFragment;
+import io.github.zhanghaowx.opentrainer.model.CourseCardViewBean;
 
 /**
- * fragment for course list
+ * A fragment which uses recycler view + card view to display its content
  */
 public class CourseListFragment extends BaseFragment {
     private static final String TAG = CourseListFragment.class.getSimpleName();
-    private View mViewCourseList;
-    private ViewPager mViewPager;
-    private PagerSlidingTabStrip mPagerSlidingTabStrip;
+
+    private View mViewRecyclerCardsView;
+    private RecyclerView mRecyclerView;
+    private FloatingActionButton mFloatingActionButton;
+
+    public static CourseListFragment newInstance() {
+        return new CourseListFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mViewCourseList = inflater.inflate(R.layout.fragment_default, container, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        mViewPager = (ViewPager) mViewCourseList.findViewById(R.id.fragment_home_view_pager);
-        mViewPager.setAdapter(new CourseListAdapter(getToolbarMenuTitles(), getChildFragmentManager()));
+        mViewRecyclerCardsView = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        mPagerSlidingTabStrip = (PagerSlidingTabStrip) mViewCourseList.findViewById(R.id.fragment_home_pager_sliding_tab);
-        Resources res = getActivity().getResources();
-        mPagerSlidingTabStrip.setTextColor(res.getColor(R.color.theme_dialer_accent));
-        mPagerSlidingTabStrip.setDividerColor(res.getColor(R.color.theme_dialer_primary));
-        mPagerSlidingTabStrip.setIndicatorColor(res.getColor(R.color.theme_dialer_high));
-        mPagerSlidingTabStrip.setViewPager(mViewPager);
+        mRecyclerView = (RecyclerView) mViewRecyclerCardsView.findViewById(R.id.fragment_recycler_view_content_main);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(new CourseCardsAdapter(getActivity(), createMockCardList()));
 
-        return mViewCourseList;
+        mFloatingActionButton = (FloatingActionButton) mViewRecyclerCardsView.findViewById(R.id.fragment_recycler_view_float_action_button);
+        mFloatingActionButton.attachToRecyclerView(mRecyclerView);
+
+        return mViewRecyclerCardsView;
     }
 
-    /**
-     * Read head bar menu titles from resources file and create a list to hold them.
-     *
-     * @return
-     */
-    private List<String> getToolbarMenuTitles() {
-        return Arrays.asList(getActivity().getResources().getStringArray(R.array.fragment_courseList_sections_tabs_title));
+    private List<CourseCardViewBean> createMockCardList() {
+        List<CourseCardViewBean> cardList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            cardList.add(new CourseCardViewBean("http://lorempixel.com/800/400/nightlife/" + i));
+        }
+        return cardList;
     }
 }

@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-import io.github.zhanghaowx.opentrainer.fragment.core.RecyclerViewFragment;
+import io.github.zhanghaowx.opentrainer.fragment.course.CourseListFragment;
 
 /**
  * Adapter that creates necessary view objects for CourseListFragment
@@ -39,11 +39,11 @@ public class CourseListAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return RecyclerViewFragment.newInstance();
+                return CourseListFragment.newInstance();
             case 1:
-                return RecyclerViewFragment.newInstance();
+                return CourseListFragment.newInstance();
             case 2:
-                return RecyclerViewFragment.newInstance();
+                return CourseListFragment.newInstance();
             default:
                 return new Fragment();
         }

@@ -1,9 +1,9 @@
 package io.github.zhanghaowx.opentrainer.model;
 
-public class CardViewBean {
+public class CourseCardViewBean {
     private String mImageUrl;
 
-    public CardViewBean(String imageUrl) {
+    public CourseCardViewBean(String imageUrl) {
         this.mImageUrl = imageUrl;
     }
 

@@ -47,7 +47,7 @@ public class NavigationDrawerFragment extends BaseFragment {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerListView;
     private View mFragmentContainerView;
-    private boolean mUserLearnedDrawer;
+    private boolean mUserLearnedDrawer = true;
     private int mCurrentSelectedPosition = 0;
 
     @Override

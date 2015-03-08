@@ -1,10 +1,13 @@
 package io.github.zhanghaowx.opentrainer.activity.course;
 
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+
+import com.github.ksoichiro.android.observablescrollview.ScrollState;
 
 import io.github.zhanghaowx.opentrainer.R;
 import io.github.zhanghaowx.opentrainer.activity.core.NavigationDrawerActivity;
-import io.github.zhanghaowx.opentrainer.fragment.course.CourseListFragment;
+import io.github.zhanghaowx.opentrainer.fragment.course.CourseListHomeFragment;
 
 /**
  * For course list activity
@@ -13,7 +16,7 @@ public class CourseListActivity extends NavigationDrawerActivity {
 
     @Override
     protected Fragment getFragment() {
-        return new CourseListFragment();
+        return new CourseListHomeFragment();
     }
 
     @Override
@@ -33,6 +36,6 @@ public class CourseListActivity extends NavigationDrawerActivity {
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-
+        // create different fragment for different selections
     }
 }
