@@ -1,11 +1,14 @@
 <resources>
-    <color name="theme_default_primary">#EC407A</color>
+    <color name="theme_default_background">#1F1F1F</color>
+    <color name="theme_default_background_transparent">#EE1F1F1F</color>
+    <color name="theme_default_font">#000000</color>
 
-    <color name="theme_dialer_high">#0277BD</color>
-    <color name="theme_dialer_primary">#0288D1</color>
-    <color name="theme_dialer_accent">#FFF</color>
+    <color name="theme_default_primary_dark">#0277BD</color>
+    <color name="theme_default_primary">#0288D1</color>
+    <color name="theme_default_light">#FFFFFF</color>
 
     <color name="accent">#ff4081</color>
     <color name="accent_pressed">#f50057</color>
-    <color name="ripple">#ff80ab</color>
+    <color name="accent_ripple">#ff80ab</color>
+
 </resources>

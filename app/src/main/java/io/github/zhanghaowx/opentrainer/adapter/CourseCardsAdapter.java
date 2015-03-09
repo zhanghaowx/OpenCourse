@@ -2,12 +2,13 @@ package io.github.zhanghaowx.opentrainer.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,7 +21,7 @@ import io.github.zhanghaowx.opentrainer.model.CourseCardViewBean;
 /**
  * Adapter to create view holder for RecyclerViewFragment
  */
-public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.ViewHolder> {
+public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.CourseCardViewHolder> {
     private static final String TAG = CourseCardsAdapter.class.getSimpleName();
 
     private final List<CourseCardViewBean> mListItemsCard;
@@ -32,19 +33,21 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(mActivity, LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_recycler_view_comp, parent, false));
+    public CourseCardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new CourseCardViewHolder(mActivity, LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_course_list_card, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        final CourseCardViewBean itemCardView = mListItemsCard.get(position);
-        holder.itemView.setTag(itemCardView);
+    public void onBindViewHolder(final CourseCardViewHolder holder, int position) {
+        final CourseCardViewBean courseCard = mListItemsCard.get(position);
+        holder.itemView.setTag(courseCard);
+
         /**
          * Download and show images in card
          */
+        holder.mTitleView.setText(courseCard.getTitle());
         Picasso.with(holder.mImageView.getContext())
-                .load(itemCardView.getImageUrl())
+                .load(courseCard.getImageUrl())
                 .error(R.drawable.placeholder_card_view)
                 .placeholder(R.drawable.placeholder_card_view)
                 .into(holder.mImageView);
@@ -55,23 +58,30 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
         return mListItemsCard.size();
     }
 
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView mImageView;
+    /**
+     * Holds a card view for a course
+     */
+    public static class CourseCardViewHolder extends RecyclerView.ViewHolder {
+        private CardView mCardView;
+        private TextView mTitleView;
+        private ImageView mImageView;
         private Activity mActivity;
 
-        public ViewHolder(Activity activity , View itemView) {
+        public CourseCardViewHolder(Activity activity, View itemView) {
             super(itemView);
             mActivity = activity;
-            mImageView = (ImageView) itemView.findViewById(R.id.material_com_card_view_image);
+            mCardView = (CardView) itemView.findViewById(R.id.course_card_view);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            // Load view components
+            mTitleView = (TextView) mCardView.findViewById(R.id.course_card_view_title);
+            mImageView = (ImageView) mCardView.findViewById(R.id.course_card_view_image);
+
+            mCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mActivity.startActivity(new Intent(mActivity, CourseDetailActivity.class));
                 }
             });
         }
-
     }
 }

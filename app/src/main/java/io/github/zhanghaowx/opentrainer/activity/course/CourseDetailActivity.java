@@ -2,7 +2,6 @@ package io.github.zhanghaowx.opentrainer.activity.course;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -55,7 +54,7 @@ public class CourseDetailActivity extends BaseActivity implements ObservableScro
 
         mImageView = findViewById(R.id.image);
         mToolbarView = findViewById(R.id.toolbar);
-        mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.theme_dialer_primary)));
+        mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.theme_default_primary)));
 
         mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
         mScrollView.setScrollViewCallbacks(this);
@@ -75,7 +74,7 @@ public class CourseDetailActivity extends BaseActivity implements ObservableScro
         alpha = Math.min(0.9f, alpha);
 
         // color of the toolbar changes when user scrolls
-        int baseColor = getResources().getColor(R.color.theme_dialer_primary);
+        int baseColor = getResources().getColor(R.color.theme_default_primary);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
 
         // parallax scrolling

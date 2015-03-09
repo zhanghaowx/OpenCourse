@@ -13,7 +13,7 @@
             android:id="@+id/screen_default_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/theme_dialer_primary"
+            android:background="@color/theme_default_primary"
             android:minHeight="?attr/actionBarSize"
             tools:context=".ToolBar" />
 

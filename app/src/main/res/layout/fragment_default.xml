@@ -12,7 +12,7 @@
         android:id="@+id/fragment_home_pager_sliding_tab"
         android:layout_width="match_parent"
         android:layout_height="48dip"
-        android:background="@color/theme_dialer_primary"
+        android:background="@color/theme_default_primary"
         android:elevation="@dimen/elevation_ten"
         android:fillViewport="false"
         app:pstsShouldExpand="true" />
@@ -22,5 +22,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/fragment_home_pager_sliding_tab"
-        android:background="@android:color/white" />
+        android:background="@color/theme_default_background" />
 </RelativeLayout>

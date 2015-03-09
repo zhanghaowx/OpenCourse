@@ -1,0 +1,102 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/course_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/margin_four"
+    android:layout_marginTop="@dimen/margin_four"
+    android:elevation="@dimen/elevation_ten"
+    card_view:cardCornerRadius="@dimen/radius_zero">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/course_card_view_title"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/theme_default_light"
+            android:paddingBottom="@dimen/padding_sixteen"
+            android:paddingLeft="@dimen/padding_eight"
+            android:paddingTop="@dimen/padding_sixteen"
+            android:textColor="@color/theme_default_font" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/course_card_view_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:background="@color/theme_default_background_transparent">
+
+                <TextView
+                    android:id="@+id/course_card_view_sponsors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_six"
+                    android:text="232478 Attended" />
+                <TextView
+                    android:id="@+id/course_card_view_target"
+                    android:layout_toLeftOf="@+id/course_card_view_days_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_six"
+                    android:text="100% Completed" />
+                <TextView
+                    android:id="@+id/course_card_view_days_left"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/padding_six"
+                    android:paddingBottom="@dimen/padding_six"
+                    android:paddingRight="@dimen/padding_eight"
+                    android:paddingLeft="@dimen/padding_twenty_four"
+                    android:text="28 Days Left" />
+
+                <ProgressBar
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:id="@+id/course_card_view_progress"
+                    android:layout_below="@+id/course_card_view_sponsors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:progressTint="@color/accent"
+                    android:progress="40" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/course_card_view_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_default_light"
+            android:paddingLeft="@dimen/padding_ten"
+            android:paddingTop="@dimen/padding_four"
+            android:text="I am the teacher"
+            android:textColor="@color/theme_default_font" />
+
+        <TextView
+            android:id="@+id/course_card_view_introduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_default_light"
+            android:paddingBottom="@dimen/padding_four"
+            android:paddingLeft="@dimen/padding_ten"
+            android:text="I am the introduction of this course"
+            android:textColor="@color/theme_default_font" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -46,7 +46,7 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/theme_dialer_primary"
+        android:background="@color/theme_default_primary"
         android:minHeight="?attr/actionBarSize"
         app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar" />
 </FrameLayout>

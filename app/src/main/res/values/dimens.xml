@@ -17,6 +17,7 @@
     <dimen name="text_size_twenty_eight">28dp</dimen>
 
     <!-- Spacings -->
+    <dimen name="zero">0dp</dimen>
     <dimen name="two">2dp</dimen>
     <dimen name="four">4dp</dimen>
     <dimen name="six">6dp</dimen>
@@ -82,6 +83,7 @@
 
 
     <!-- Radius -->
+    <dimen name="radius_zero">@dimen/zero</dimen>
     <dimen name="radius_two">@dimen/two</dimen>
     <dimen name="radius_four">@dimen/four</dimen>
     <dimen name="radius_six">@dimen/six</dimen>
@@ -99,4 +101,9 @@
 
     <!-- Drawer Menu -->
     <dimen name="drawer_menu_width">240dp</dimen>
+
+    <!-- Card View -->
+    <dimen name="card_view_height">240dp</dimen>
+    <dimen name="card_view_title_height">30dp</dimen>
+
 </resources>

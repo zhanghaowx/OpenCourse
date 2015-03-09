@@ -35,9 +35,9 @@ public class CourseListHomeFragment extends BaseFragment {
 
         mPagerSlidingTabStrip = (PagerSlidingTabStrip) mViewCourseList.findViewById(R.id.fragment_home_pager_sliding_tab);
         Resources res = getActivity().getResources();
-        mPagerSlidingTabStrip.setTextColor(res.getColor(R.color.theme_dialer_accent));
-        mPagerSlidingTabStrip.setDividerColor(res.getColor(R.color.theme_dialer_primary));
-        mPagerSlidingTabStrip.setIndicatorColor(res.getColor(R.color.theme_dialer_high));
+        mPagerSlidingTabStrip.setTextColor(res.getColor(R.color.theme_default_light));
+        mPagerSlidingTabStrip.setDividerColor(res.getColor(R.color.theme_default_primary));
+        mPagerSlidingTabStrip.setIndicatorColor(res.getColor(R.color.theme_default_primary_dark));
         mPagerSlidingTabStrip.setViewPager(mViewPager);
 
         return mViewCourseList;

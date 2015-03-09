@@ -36,7 +36,7 @@ public class CourseListFragment extends BaseFragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        mViewRecyclerCardsView = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+        mViewRecyclerCardsView = inflater.inflate(R.layout.fragment_course_list, container, false);
 
         mRecyclerView = (RecyclerView) mViewRecyclerCardsView.findViewById(R.id.fragment_recycler_view_content_main);
         mRecyclerView.setHasFixedSize(true);
@@ -52,7 +52,7 @@ public class CourseListFragment extends BaseFragment {
     private List<CourseCardViewBean> createMockCardList() {
         List<CourseCardViewBean> cardList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            cardList.add(new CourseCardViewBean("http://lorempixel.com/800/400/nightlife/" + i));
+            cardList.add(new CourseCardViewBean("课程名称", "http://lorempixel.com/800/400/nightlife/" + i));
         }
         return cardList;
     }
