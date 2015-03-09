@@ -40,4 +40,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.0'
     // Android library to observe scroll events on scrollable views.
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.0'
+    // A fast circular ImageView perfect for profile images
+    compile 'de.hdodenhof:circleimageview:1.2.2'
 }

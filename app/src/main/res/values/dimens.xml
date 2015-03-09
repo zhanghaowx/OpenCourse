@@ -63,7 +63,7 @@
     <dimen name="padding_twenty_two">@dimen/twenty_two</dimen>
     <dimen name="padding_twenty_four">@dimen/twenty_four</dimen>
     <dimen name="padding_twenty_six">@dimen/twenty_six</dimen>
-    <dimen name="padding_wenty_eight">@dimen/twenty_eight</dimen>
+    <dimen name="padding_twenty_eight">@dimen/twenty_eight</dimen>
 
     <!-- Elevation -->
     <dimen name="elevation_two">@dimen/two</dimen>

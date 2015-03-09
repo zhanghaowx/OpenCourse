@@ -6,6 +6,7 @@
     <color name="theme_default_primary_dark">#0277BD</color>
     <color name="theme_default_primary">#0288D1</color>
     <color name="theme_default_light">#FFFFFF</color>
+    <color name="theme_default_dark">#BEBEBE</color>
 
     <color name="accent">#ff4081</color>
     <color name="accent_pressed">#f50057</color>
