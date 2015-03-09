@@ -74,7 +74,7 @@ public class NavigationDrawerFragment extends BaseFragment {
 
         DrawerMenuAdapter drawerMenuAdapter = new DrawerMenuAdapter(mContext, getDrawerMenuItems());
         mDrawerListView.setAdapter(drawerMenuAdapter);
-        //mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -215,10 +215,10 @@ public class NavigationDrawerFragment extends BaseFragment {
         ArrayList<DrawerMenuBean> menuDrawerListItems = new ArrayList<DrawerMenuBean>();
 
         try {
-            String[] menuDrawerTitleArray = getActivity().getResources().getStringArray(R.array.fragment_drawerMenu_title);
-            for (String aMenuDrawerTitle : menuDrawerTitleArray) {
-                menuDrawerListItems.add(new DrawerMenuBean(aMenuDrawerTitle));
-            }
+            Resources res = getActivity().getResources();
+            menuDrawerListItems.add(new DrawerMenuBean(res.getString(R.string.fragment_drawerMenu_item_myAccount), R.drawable.ic_account_circle_white_24dp));
+            menuDrawerListItems.add(new DrawerMenuBean(res.getString(R.string.fragment_drawerMenu_item_notification), R.drawable.ic_notifications_white_24dp));
+            menuDrawerListItems.add(new DrawerMenuBean(res.getString(R.string.fragment_drawerMenu_item_settings), R.drawable.ic_settings_white_24dp));
         } catch (Resources.NotFoundException notFoundException) {
             Log.e(TAG, "Error Getting Drawer Menu Title Array", notFoundException);
         }

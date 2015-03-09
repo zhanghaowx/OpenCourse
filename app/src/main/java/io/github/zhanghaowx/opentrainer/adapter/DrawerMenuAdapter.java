@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -42,25 +43,30 @@ public class DrawerMenuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        MenuItemViewHolder holder;
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.fragment_drawer_menu_comp, null);
 
-            holder = new ViewHolder();
-            holder.mTitle = (TextView) convertView.findViewById(R.id.fragment_drawerMenu_comp_title);
+            convertView = inflater.inflate(R.layout.fragment_drawer_menu_item, null);
+
+            holder = new MenuItemViewHolder();
+            holder.mTitle = (TextView) convertView.findViewById(R.id.fragment_drawerMenu_item_title);
+            holder.mIconView = (ImageView) convertView.findViewById(R.id.fragment_drawerMenu_icon);
+
             convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (MenuItemViewHolder) convertView.getTag();
         }
 
         holder.mTitle.setText(mListItemsInDrawerMenu.get(position).getTitle());
+        holder.mIconView.setImageResource(mListItemsInDrawerMenu.get(position).getIconResourceId());
 
         return convertView;
     }
 
-    private static class ViewHolder {
+    private static class MenuItemViewHolder {
+        ImageView mIconView;
         TextView mTitle;
     }
 }

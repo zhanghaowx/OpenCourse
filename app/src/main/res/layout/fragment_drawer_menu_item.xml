@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_drawerMenu_comp_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_twenty"
+    android:paddingTop="@dimen/padding_eight"
+    tools:context=".DrawerMenuItem">
+
+    <ImageView
+        android:id="@+id/fragment_drawerMenu_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/twenty_four"
+        android:layout_marginRight="@dimen/margin_four"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_error_red_24dp"/>
+
+    <TextView
+        android:id="@+id/fragment_drawerMenu_item_title"
+        android:layout_toRightOf="@+id/fragment_drawerMenu_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/twenty_four"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:text="@string/fragment_drawerMenu_item_default"
+        android:gravity="center" />
+
+</RelativeLayout>
