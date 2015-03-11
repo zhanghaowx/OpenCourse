@@ -16,7 +16,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import butterknife.InjectView;
 import io.github.zhanghaowx.opentrainer.R;
 import io.github.zhanghaowx.opentrainer.activity.course.CourseDetailActivity;
 import io.github.zhanghaowx.opentrainer.model.CourseCardViewBean;
