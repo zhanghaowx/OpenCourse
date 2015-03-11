@@ -1,7 +1,9 @@
 package io.github.zhanghaowx.opentrainer.adapter;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.InjectView;
 import io.github.zhanghaowx.opentrainer.R;
 import io.github.zhanghaowx.opentrainer.activity.course.CourseDetailActivity;
 import io.github.zhanghaowx.opentrainer.model.CourseCardViewBean;
@@ -65,21 +68,29 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
         private CardView mCardView;
         private TextView mTitleView;
         private ImageView mImageView;
+
         private Activity mActivity;
 
         public CourseCardViewHolder(Activity activity, View itemView) {
             super(itemView);
             mActivity = activity;
-            mCardView = (CardView) itemView.findViewById(R.id.course_card_view);
 
             // Load view components
+            mCardView = (CardView) itemView.findViewById(R.id.course_card_view);
             mTitleView = (TextView) mCardView.findViewById(R.id.course_card_view_title);
             mImageView = (ImageView) mCardView.findViewById(R.id.course_card_view_image);
 
             mCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mActivity.startActivity(new Intent(mActivity, CourseDetailActivity.class));
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(mActivity,
+                                mImageView, mImageView.getTransitionName());
+                        mActivity.startActivity(new Intent(mActivity, CourseDetailActivity.class),
+                                options.toBundle());
+                    } else {
+                        mActivity.startActivity(new Intent(mActivity, CourseDetailActivity.class));
+                    }
                 }
             });
         }

@@ -35,7 +35,9 @@
                 android:id="@+id/course_card_view_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"/>
+                android:minHeight="@dimen/card_view_height"
+                android:scaleType="centerCrop"
+                android:transitionName="course:detail:header:image"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -102,6 +104,7 @@
                         android:paddingTop="@dimen/padding_four"
                         android:text="Keith E. Wrightson"
                         android:textColor="@color/theme_default_light"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+               android:transitionOrdering="together">
+    <transitionSet android:transitionOrdering="sequential">
+        <transitionSet android:transitionOrdering="together">
+            <transition class="io.github.zhanghaowx.opentrainer.transition.Fold">
+                <targets>
+                    <target android:targetId="@id/course_image"/>
+                </targets>
+            </transition>
+            <fade>
+                <targets>
+                    <target android:targetId="@id/course_detailed_introduction"/>
+                </targets>
+            </fade>
+        </transitionSet>
+    </transitionSet>
+</transitionSet>

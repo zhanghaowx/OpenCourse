@@ -1,14 +1,14 @@
 package io.github.zhanghaowx.opentrainer.activity.core;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
-
-import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
-import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
-
-import io.github.zhanghaowx.opentrainer.R;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
+import android.view.Window;
 
 /**
  * This is the base class for any activity that contains
@@ -24,30 +24,66 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     /**
      * Get the ID for above fragment
+     *
      * @return
      */
     protected abstract int getFragmentId();
+
     /**
      * Returns the layout resource identifier for this activity
+     *
      * @return
      */
     protected abstract int getLayout();
 
+    /**
+     * Returns resource id for the enter transition of this activity
+     *
+     * @return
+     */
+    protected abstract int getEnterTransition();
+
+    /**
+     * Returns resource id for the exit transition for this activity
+     *
+     * @return
+     */
+    protected abstract int getExitTransition();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(getLayout());
+        // because getWindow().requestFeature() needs to be called first
+        // so setupTransition() needs to be put before super.onCreate()
+        setupTransition();
 
+        super.onCreate(savedInstanceState);
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(getFragmentId());
 
         if (fragment == null) {
             fragment = getFragment();
-            if(fragment != null) {
+            if (fragment != null) {
                 fm.beginTransaction()
                         .add(getFragmentId(), fragment)
                         .commit();
             }
+        }
+
+        setContentView(getLayout());
+    }
+
+    /**
+     * Setup exit transition of the activity
+     */
+    private void setupTransition() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            TransitionInflater inflater = TransitionInflater.from(this);
+            Transition enterTransition = inflater.inflateTransition(getEnterTransition());
+            Transition exitTransition = inflater.inflateTransition(getExitTransition());
+
+            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+            getWindow().setEnterTransition(enterTransition);
+            getWindow().setExitTransition(exitTransition);
         }
     }
 }
