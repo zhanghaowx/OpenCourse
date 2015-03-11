@@ -18,12 +18,17 @@ public class CourseListActivity extends NavigationDrawerActivity {
 
     @Override
     protected int getFragmentId() {
-        return R.id.screen_default_container;
+        return R.id.activity_with_drawer_menu_content_container;
     }
 
     @Override
     protected int getLayout() {
-        return R.layout.screen_default;
+        return R.layout.activity_with_drawer_menu;
+    }
+
+    @Override
+    protected int getToolbar() {
+        return R.id.activity_with_drawer_menu_toolbar;
     }
 
     @Override

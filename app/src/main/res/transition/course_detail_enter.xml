@@ -5,12 +5,12 @@
         <transitionSet android:transitionOrdering="together">
             <transition class="io.github.zhanghaowx.opentrainer.transition.Fold">
                 <targets>
-                    <target android:targetId="@id/course_image"/>
+                    <target android:targetId="@id/course_detail_header_image"/>
                 </targets>
             </transition>
             <fade>
                 <targets>
-                    <target android:targetId="@id/course_detailed_introduction"/>
+                    <target android:targetId="@id/course_detail_introduction"/>
                 </targets>
             </fade>
         </transitionSet>

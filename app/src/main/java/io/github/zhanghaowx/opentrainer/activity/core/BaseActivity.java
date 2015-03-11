@@ -1,20 +1,28 @@
 package io.github.zhanghaowx.opentrainer.activity.core;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
+import android.view.View;
 import android.view.Window;
+
+import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+
+import io.github.zhanghaowx.opentrainer.R;
 
 /**
  * This is the base class for any activity that contains
  * one fragment
  */
 public abstract class BaseActivity extends ActionBarActivity {
+
+    private View mToolbarView;
+
     /**
      * Create a fragment for this activity.
      *
@@ -35,6 +43,13 @@ public abstract class BaseActivity extends ActionBarActivity {
      * @return
      */
     protected abstract int getLayout();
+
+    /**
+     * Returns resource id for tool bar
+     *
+     * @return
+     */
+    protected abstract int getToolbar();
 
     /**
      * Returns resource id for the enter transition of this activity
@@ -70,13 +85,14 @@ public abstract class BaseActivity extends ActionBarActivity {
         }
 
         setContentView(getLayout());
+        setToolbar(getToolbar());
     }
 
     /**
      * Setup exit transition of the activity
      */
     private void setupTransition() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             TransitionInflater inflater = TransitionInflater.from(this);
             Transition enterTransition = inflater.inflateTransition(getEnterTransition());
             Transition exitTransition = inflater.inflateTransition(getExitTransition());
@@ -84,6 +100,18 @@ public abstract class BaseActivity extends ActionBarActivity {
             getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
             getWindow().setEnterTransition(enterTransition);
             getWindow().setExitTransition(exitTransition);
+        }
+    }
+
+    /**
+     * Setup action tool bar
+     * @param toolbarId
+     */
+    private void setToolbar(int toolbarId) {
+        Toolbar toolbar = (Toolbar) findViewById(toolbarId);
+        if(toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
 }

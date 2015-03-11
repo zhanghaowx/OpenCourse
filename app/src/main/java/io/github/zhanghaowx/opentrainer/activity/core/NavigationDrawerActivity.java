@@ -29,16 +29,16 @@ public abstract class NavigationDrawerActivity extends BaseActivity implements N
     }
 
     private void setupToolbar() {
-        mToolbar = (Toolbar) findViewById(R.id.screen_default_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.activity_with_drawer_menu_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(getActionBarTitle());
     }
 
     private void setupNavigationMenu() {
         mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.screen_default_navigation_drawer);
+                getSupportFragmentManager().findFragmentById(R.id.activity_with_drawer_menu_navigation_drawer);
         mNavigationDrawerFragment.setUp(
-                R.id.screen_default_navigation_drawer,
-                (DrawerLayout) findViewById(R.id.screen_default_drawer_layout));
+                R.id.activity_with_drawer_menu_navigation_drawer,
+                (DrawerLayout) findViewById(R.id.activity_with_drawer_menu_layout));
     }
 }
