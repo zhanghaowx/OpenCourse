@@ -11,6 +11,14 @@ build:
           echo $ANDROID_SDK_VERSION
           echo $ANDROID_BUILD_TOOLS
           echo $ANDROID_UPDATE_FILTER
+    - android-sdk-update:
+        filter: sysimg-18
+    - setup-android-emulator:
+        target: android-18
+    - script:
+        name: run gradle connectedCheck
+        code: |
+            gradle --project-cache-dir=$WERCKER_CACHE_DIR connectedCheck
     # A step that executes `gradle build` command
     - script:
         name: run gradle
