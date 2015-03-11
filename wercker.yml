@@ -12,7 +12,7 @@ build:
           echo $ANDROID_BUILD_TOOLS
           echo $ANDROID_UPDATE_FILTER
     - android-sdk-update:
-        filter: sysimg-21
+        filter: sys-img-armeabi-v7a-android-21
     - setup-android-emulator:
         target: android-21
     - script:
