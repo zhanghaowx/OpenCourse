@@ -1,6 +1,4 @@
 <resources>
-    <color name="theme_default_background">#1F1F1F</color>
-    <color name="theme_default_background_transparent">#EE1F1F1F</color>
     <color name="theme_default_font">#000000</color>
 
     <color name="theme_default_primary_dark">#0277BD</color>
@@ -11,5 +9,9 @@
     <color name="accent">#ff4081</color>
     <color name="accent_pressed">#f50057</color>
     <color name="accent_ripple">#ff80ab</color>
+
+    <color name="background_default_primary">#31576b</color>
+    <color name="background_default_dark">#1F1F1F</color>
+    <color name="background_default_dark_with_transparency">#EE1F1F1F</color>
 
 </resources>

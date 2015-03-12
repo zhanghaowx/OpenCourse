@@ -1,6 +1,8 @@
 package io.github.zhanghaowx.opentrainer.activity.course;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.view.MenuItem;
 
 import io.github.zhanghaowx.opentrainer.R;
 import io.github.zhanghaowx.opentrainer.activity.core.BaseActivity;
@@ -28,6 +30,20 @@ public class CourseDetailActivity extends BaseActivity {
     @Override
     protected int getToolbar() {
         return R.id.activity_default_toolbar;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go back
+                Intent intent = new Intent(this, CourseListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

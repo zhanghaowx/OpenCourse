@@ -21,7 +21,7 @@ import io.github.zhanghaowx.opentrainer.R;
  */
 public abstract class BaseActivity extends ActionBarActivity {
 
-    private View mToolbarView;
+    public Toolbar mToolbar;
 
     /**
      * Create a fragment for this activity.
@@ -108,10 +108,8 @@ public abstract class BaseActivity extends ActionBarActivity {
      * @param toolbarId
      */
     private void setToolbar(int toolbarId) {
-        Toolbar toolbar = (Toolbar) findViewById(toolbarId);
-        if(toolbar != null) {
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        mToolbar = (Toolbar) findViewById(toolbarId);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

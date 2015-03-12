@@ -16,7 +16,7 @@
     <View xmlns:android="http://schemas.android.com/apk/res/android"
           android:layout_width="match_parent"
           android:layout_height="?attr/actionBarSize"
-          android:background="@drawable/gradient_header_background"
+          android:background="@drawable/background_header_gradient"
           android:minHeight="?attr/actionBarSize"/>
 
     <android.support.v7.widget.Toolbar
