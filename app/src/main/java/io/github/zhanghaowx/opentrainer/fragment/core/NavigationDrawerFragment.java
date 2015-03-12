@@ -45,6 +45,7 @@ public class NavigationDrawerFragment extends BaseFragment {
      */
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
+    private View mDrawerView;
     private ListView mDrawerListView;
     private View mFragmentContainerView;
     private boolean mUserLearnedDrawer;
@@ -70,8 +71,9 @@ public class NavigationDrawerFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mDrawerListView = (ListView) inflater.inflate(R.layout.fragment_drawer_menu, container, false);
+        mDrawerView = inflater.inflate(R.layout.fragment_drawer_menu, container, false);
 
+        mDrawerListView = (ListView) mDrawerView.findViewById(R.id.fragment_drawerMenu_listView);
         DrawerMenuAdapter drawerMenuAdapter = new DrawerMenuAdapter(mContext, getDrawerMenuItems());
         mDrawerListView.setAdapter(drawerMenuAdapter);
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
@@ -82,7 +84,7 @@ public class NavigationDrawerFragment extends BaseFragment {
             }
         });
 
-        return mDrawerListView;
+        return mDrawerView;
     }
 
     @Override

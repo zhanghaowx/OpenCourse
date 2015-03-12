@@ -100,6 +100,7 @@
     <dimen name="radius_twenty_eight">@dimen/twenty_eight</dimen>
 
     <!-- Drawer Menu -->
+    <dimen name="drawer_menu_header_image_height">200dp</dimen>
     <dimen name="drawer_menu_width">240dp</dimen>
 
     <!-- Card View -->
