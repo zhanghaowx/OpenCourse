@@ -1,6 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:id="@+id/fragment_drawerMenu_comp_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/padding_twenty"
@@ -17,12 +18,26 @@
 
     <TextView
         android:id="@+id/fragment_drawerMenu_item_title"
-        android:layout_toRightOf="@+id/fragment_drawerMenu_icon"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/twenty_four"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
+        android:layout_toRightOf="@id/fragment_drawerMenu_icon"
+        android:gravity="center"
         android:text="@string/fragment_drawerMenu_item_default"
-        android:gravity="center" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold"/>
+
+    <!-- Badge Count -->
+    <TextView
+        android:id="@+id/fragment_drawerMenu_notification_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_two"
+        android:layout_toRightOf="@id/fragment_drawerMenu_item_title"
+        android:background="@drawable/background_rounded_corners_red"
+        android:paddingLeft="@dimen/padding_four"
+        android:paddingRight="@dimen/padding_four"
+        android:text="999"
+        android:textColor="@android:color/white"
+        android:textSize="10dp"/>
 
 </RelativeLayout>
