@@ -1,10 +1,8 @@
-<RelativeLayout
-    android:id="@+id/fragment_drawerMenu_containter"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_drawerMenu_containter"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/fragment_drawerMenu_header_image"
@@ -12,47 +10,29 @@
         android:layout_height="@dimen/drawer_menu_header_image_height"
         android:scaleType="centerCrop"
         android:src="@drawable/placeholder_title_image"
-        android:transitionName="course:detail:header:image"/>
+        android:transitionName="course:detail:header:image" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/fragment_drawerMenu_user_profile_image"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        android:layout_above="@+id/fragment_drawerMenu_listView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="-32dp"
+        android:elevation="@dimen/elevation_two"
         android:src="@drawable/placeholder_user_profile_picture"
         app:border_color="#FFFFFF"
-        app:border_width="2dp"/>
+        app:border_width="2dp" />
 
-    <TextView
-        android:id="@+id/fragment_drawerMenu_user_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fragment_drawerMenu_user_profile_image"
-        android:layout_marginTop="@dimen/margin_ten"
-        android:gravity="center"
-        android:text="Keith E. Wrightson"
-        android:textColor="@color/theme_default_light"/>
-
-    <TextView
-        android:id="@+id/fragment_drawerMenu_user_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fragment_drawerMenu_user_name"
-        android:gravity="center"
-        android:text="someone@somedomain.com"
-        android:textColor="@color/theme_default_light"/>
-
-    <ListView
-        android:id="@+id/fragment_drawerMenu_listView"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragment_drawerMenu_listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/fragment_drawerMenu_header_image"
         android:layout_gravity="start"
         android:background="@color/material_blue_grey_900"
-        android:dividerHeight="0dp"
-        tools:context=".FragmentDrawerMenu"/>
+        android:paddingTop="32dp"
+        tools:context=".FragmentDrawerMenu" />
 </RelativeLayout>
 
