@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/activity_with_drawer_menu_navigation_drawer"
-        android:name="io.github.zhanghaowx.opentrainer.fragment.core.NavigationDrawerFragment"
+        android:name="io.github.zhanghaowx.opencourse.fragment.core.NavigationDrawerFragment"
         android:layout_width="@dimen/drawer_menu_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
