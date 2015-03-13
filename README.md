@@ -1,5 +1,5 @@
-# OpenTrainer
-An android app as as part of a platform for training institutions, instructor, and attendees.
+# OpenCourse
+An android app inspired by itunes university, desgined to build a learning community for continuous learners.
 
 ## Design Guidelines
 The app will try to follow Google's [Material Design Guidelines](http://www.google.com/design/spec/material-design/introduction.html)
