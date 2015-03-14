@@ -14,6 +14,6 @@ public final class OpenCourseApplication extends Application {
         super.onCreate();
 
         // Override default font
-        //FontsOverride.setDefaultFont(this, "DEFAULT", "fonts/NotoSansCJKsc-Regular.otf");
+        //FontsOverride.setDefaultFont(this, "DEFAULT", "fonts/.ttf");
     }
 }
