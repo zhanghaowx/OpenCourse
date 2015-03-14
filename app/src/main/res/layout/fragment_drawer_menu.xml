@@ -12,18 +12,6 @@
         android:src="@drawable/placeholder_title_image"
         android:transitionName="course:detail:header:image" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/fragment_drawerMenu_user_profile_image"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_above="@+id/fragment_drawerMenu_listView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-32dp"
-        android:elevation="@dimen/elevation_two"
-        android:src="@drawable/placeholder_user_profile_picture"
-        app:border_color="#FFFFFF"
-        app:border_width="2dp" />
-
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/fragment_drawerMenu_listView"
@@ -34,5 +22,19 @@
         android:background="@color/material_blue_grey_900"
         android:paddingTop="32dp"
         tools:context=".FragmentDrawerMenu" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_drawerMenu_user_profile_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_above="@+id/fragment_drawerMenu_listView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-32dp"
+        android:elevation="@dimen/elevation_ten"
+        android:src="@drawable/placeholder_user_profile_picture"
+        app:border_color="#FFFFFF"
+        app:border_width="2dp" />
+
+
 </RelativeLayout>
 
