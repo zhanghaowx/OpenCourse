@@ -102,7 +102,6 @@
                         android:layout_toRightOf="@+id/course_card_view_teacher_thumbnail"
                         android:paddingLeft="@dimen/padding_ten"
                         android:paddingTop="@dimen/padding_four"
-                        android:text="Keith E. Wrightson"
                         android:textColor="@color/theme_default_light"/>
 
                     <TextView
@@ -119,7 +118,6 @@
                         android:layout_toRightOf="@+id/course_card_view_teacher_name"
                         android:paddingLeft="@dimen/padding_ten"
                         android:paddingTop="@dimen/padding_four"
-                        android:text="historian of England"
                         android:textColor="@color/theme_default_dark"/>
 
                 </RelativeLayout>
@@ -127,12 +125,11 @@
         </FrameLayout>
 
         <TextView
-            android:id="@+id/course_card_view_introduction"
+            android:id="@+id/course_card_view_short_summary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/theme_default_light"
             android:padding="@dimen/padding_ten"
-            android:text="本课程以新视角概括了15世纪晚期到18世纪早期的英国社会发展。课程中涉及到的内容包括：社会结构的沿革、家庭、区域团体、性别角色、经济发展、城市化、宗教改革到信仰自由法案间宗教信仰的变迁、都铎和斯图亚特王朝、叛乱斗争、猎巫运动、文化教育和印刷、犯罪和法律、财产与社会福利、政治参与方式、议会制政府的产生等。"
             android:textColor="@color/theme_default_font"/>
 
     </LinearLayout>

@@ -18,7 +18,7 @@ import java.util.List;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.activity.course.CourseDetailActivity;
-import io.github.zhanghaowx.opencourse.model.course.CourseCardViewBean;
+import io.github.zhanghaowx.opencourse.model.course.Course;
 
 /**
  * Adapter to create view holder for RecyclerViewFragment
@@ -26,12 +26,16 @@ import io.github.zhanghaowx.opencourse.model.course.CourseCardViewBean;
 public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.CourseCardViewHolder> {
     private static final String TAG = CourseCardsAdapter.class.getSimpleName();
 
-    private final List<CourseCardViewBean> mListItemsCard;
+    private List<Course> mListCourseCard;
     private Activity mActivity;
 
-    public CourseCardsAdapter(Activity activity, List<CourseCardViewBean> listItemsCard) {
-        this.mListItemsCard = listItemsCard;
+    public CourseCardsAdapter(Activity activity, List<Course> listCourseCard) {
+        this.mListCourseCard = listCourseCard;
         this.mActivity = activity;
+    }
+
+    public void setListCourseCard(List<Course> listCourseCard) {
+        mListCourseCard = listCourseCard;
     }
 
     @Override
@@ -41,32 +45,37 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
 
     @Override
     public void onBindViewHolder(final CourseCardViewHolder holder, int position) {
-        final CourseCardViewBean courseCard = mListItemsCard.get(position);
+        final Course courseCard = mListCourseCard.get(position);
         holder.itemView.setTag(courseCard);
 
         /**
          * Download and show images in card
          */
-        holder.mTitleView.setText(courseCard.getTitle());
-        Picasso.with(holder.mImageView.getContext())
-                .load(courseCard.getImageUrl())
+        holder.mCourseTitleView.setText(courseCard.getTitle());
+        Picasso.with(holder.mCourseImageView.getContext())
+                .load(courseCard.getBannerImage())
                 .error(R.drawable.placeholder_card_view)
                 .placeholder(R.drawable.placeholder_card_view)
-                .into(holder.mImageView);
+                .into(holder.mCourseImageView);
     }
 
     @Override
     public int getItemCount() {
-        return mListItemsCard.size();
+        return mListCourseCard.size();
     }
 
     /**
      * Holds a card view for a course
      */
     public static class CourseCardViewHolder extends RecyclerView.ViewHolder {
+        // Parent for all other views
         private CardView mCardView;
-        private TextView mTitleView;
-        private ImageView mImageView;
+
+        private ImageView mCourseImageView;
+        private TextView mCourseTitleView;
+        private TextView mCourseShortSummaryView;
+        private TextView mInstructorNameView;
+        private TextView mInstructorTitleView;
 
         private Activity mActivity;
 
@@ -76,15 +85,16 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
 
             // Load view components
             mCardView = (CardView) itemView.findViewById(R.id.course_card_view);
-            mTitleView = (TextView) mCardView.findViewById(R.id.course_card_view_title);
-            mImageView = (ImageView) mCardView.findViewById(R.id.course_card_view_image);
+            mCourseImageView = (ImageView) mCardView.findViewById(R.id.course_card_view_image);
+            mCourseTitleView = (TextView) mCardView.findViewById(R.id.course_card_view_title);
+            mCourseShortSummaryView = (TextView) mCardView.findViewById(R.id.course_card_view_short_summary);
 
             mCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(mActivity,
-                                mImageView, mImageView.getTransitionName());
+                                mCourseImageView, mCourseImageView.getTransitionName());
                         mActivity.startActivity(new Intent(mActivity, CourseDetailActivity.class),
                                 options.toBundle());
                     } else {

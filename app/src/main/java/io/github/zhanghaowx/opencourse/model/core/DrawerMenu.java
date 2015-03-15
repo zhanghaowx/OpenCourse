@@ -1,10 +1,10 @@
 package io.github.zhanghaowx.opencourse.model.core;
 
-public class DrawerMenuBean {
+public class DrawerMenu {
     private int mIconResourceId;
     private String mTitle;
 
-    public DrawerMenuBean(String title, int iconResourceId) {
+    public DrawerMenu(String title, int iconResourceId) {
         this.mTitle = title;
         this.mIconResourceId = iconResourceId;
     }

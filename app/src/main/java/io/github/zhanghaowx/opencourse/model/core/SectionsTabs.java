@@ -1,9 +1,9 @@
 package io.github.zhanghaowx.opencourse.model.core;
 
-public class SectionsTabsBean {
+public class SectionsTabs {
     private String mTitle;
 
-    public SectionsTabsBean(String title) {
+    public SectionsTabs(String title) {
         this.mTitle = title;
     }
 

@@ -10,12 +10,16 @@ import android.view.ViewGroup;
 import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.adapter.course.CourseCardsAdapter;
+import io.github.zhanghaowx.opencourse.datasource.parse.ParseCourseSource;
+import io.github.zhanghaowx.opencourse.datasource.utils.SearchCallback;
 import io.github.zhanghaowx.opencourse.fragment.core.BaseFragment;
-import io.github.zhanghaowx.opencourse.model.course.CourseCardViewBean;
+import io.github.zhanghaowx.opencourse.model.course.BaseModel;
+import io.github.zhanghaowx.opencourse.model.course.Course;
 
 /**
  * A fragment which uses recycler view + card view to display its content
@@ -41,19 +45,20 @@ public class CourseListFragment extends BaseFragment {
         mRecyclerView = (RecyclerView) mViewRecyclerCardsView.findViewById(R.id.fragment_recycler_view_content_main);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(new CourseCardsAdapter(getActivity(), createMockCardList()));
+
+        final CourseCardsAdapter courseCardsAdapter = new CourseCardsAdapter(getActivity(), new ArrayList<Course>());
+        ParseCourseSource.getInstance().getCoursesAsync(new SearchCallback<Course>() {
+            @Override
+            public void success(List<Course> courses) {
+                courseCardsAdapter.setListCourseCard(courses);
+                courseCardsAdapter.notifyDataSetChanged();
+            }
+        });
+        mRecyclerView.setAdapter(courseCardsAdapter);
 
         mFloatingActionButton = (FloatingActionButton) mViewRecyclerCardsView.findViewById(R.id.fragment_recycler_view_float_action_button);
         mFloatingActionButton.attachToRecyclerView(mRecyclerView);
 
         return mViewRecyclerCardsView;
-    }
-
-    private List<CourseCardViewBean> createMockCardList() {
-        List<CourseCardViewBean> cardList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            cardList.add(new CourseCardViewBean("课程名称", "http://lorempixel.com/800/400/nightlife/" + i));
-        }
-        return cardList;
     }
 }

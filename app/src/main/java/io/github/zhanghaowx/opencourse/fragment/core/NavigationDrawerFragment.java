@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.adapter.core.DrawerMenuAdapter;
-import io.github.zhanghaowx.opencourse.model.core.DrawerMenuBean;
+import io.github.zhanghaowx.opencourse.model.core.DrawerMenu;
 
 /**
  * Fragment used for interaction management and presentation to the drawer menu
@@ -213,14 +213,14 @@ public class NavigationDrawerFragment extends BaseFragment {
      *
      * @return
      */
-    private ArrayList<DrawerMenuBean> getDrawerMenuItems() {
-        ArrayList<DrawerMenuBean> menuDrawerListItems = new ArrayList<DrawerMenuBean>();
+    private ArrayList<DrawerMenu> getDrawerMenuItems() {
+        ArrayList<DrawerMenu> menuDrawerListItems = new ArrayList<DrawerMenu>();
 
         try {
             Resources res = getActivity().getResources();
-            menuDrawerListItems.add(new DrawerMenuBean(res.getString(R.string.fragment_drawerMenu_item_myAccount), R.drawable.ic_account_circle_white_24dp));
-            menuDrawerListItems.add(new DrawerMenuBean(res.getString(R.string.fragment_drawerMenu_item_notification), R.drawable.ic_notifications_white_24dp));
-            menuDrawerListItems.add(new DrawerMenuBean(res.getString(R.string.fragment_drawerMenu_item_settings), R.drawable.ic_settings_white_24dp));
+            menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_myAccount), R.drawable.ic_account_circle_white_24dp));
+            menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_notification), R.drawable.ic_notifications_white_24dp));
+            menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_settings), R.drawable.ic_settings_white_24dp));
         } catch (Resources.NotFoundException notFoundException) {
             Log.e(TAG, "Error Getting Drawer Menu Title Array", notFoundException);
         }

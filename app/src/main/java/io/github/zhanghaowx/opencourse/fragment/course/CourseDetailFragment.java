@@ -79,4 +79,8 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
         BaseActivity baseActivity = (BaseActivity) getActivity();
         baseActivity.getSupportActionBar().setBackgroundDrawable(backgroundDrawable);
     }
+
+    private void changeActionBarHeight(float height) {
+        BaseActivity baseActivity = (BaseActivity) getActivity();
+    }
 }

@@ -12,16 +12,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import io.github.zhanghaowx.opencourse.R;
-import io.github.zhanghaowx.opencourse.model.core.DrawerMenuBean;
+import io.github.zhanghaowx.opencourse.model.core.DrawerMenu;
 
 /**
  * Adapter to create necessary view object for NavigationDrawerFragment
  */
 public class DrawerMenuAdapter extends BaseAdapter {
     private Context mContext;
-    private ArrayList<DrawerMenuBean> mListItemsInDrawerMenu;
+    private ArrayList<DrawerMenu> mListItemsInDrawerMenu;
 
-    public DrawerMenuAdapter(Context mContext, ArrayList<DrawerMenuBean> listItems) {
+    public DrawerMenuAdapter(Context mContext, ArrayList<DrawerMenu> listItems) {
         this.mContext = mContext;
         this.mListItemsInDrawerMenu = listItems;
     }
