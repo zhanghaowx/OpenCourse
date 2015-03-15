@@ -42,4 +42,7 @@ dependencies {
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.0'
     // A fast circular ImageView perfect for profile images
     compile 'de.hdodenhof:circleimageview:1.2.2'
+    // Parse
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
 }
