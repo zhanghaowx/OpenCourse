@@ -142,7 +142,7 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
         changeActionBarTransparency(alpha);
 
         // parallax scrolling
-        ViewHelper.setTranslationY(mViewHolder.mCourseImageView, scrollY / 2);
+        ViewHelper.setTranslationY(mViewHolder.mCourseImageView, scrollY / 3);
     }
 
     @Override

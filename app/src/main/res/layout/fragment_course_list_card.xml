@@ -33,8 +33,7 @@
             <ImageView
                 android:id="@+id/course_card_view_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="@dimen/card_view_height"
+                android:layout_height="@dimen/card_view_height"
                 android:scaleType="centerCrop"
                 android:transitionName="course:detail:header:image"/>
 
