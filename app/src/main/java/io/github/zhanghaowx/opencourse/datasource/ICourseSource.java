@@ -26,5 +26,5 @@ public interface ICourseSource {
      * @param id
      * @return
      */
-    public void getCourseAsync(int id, SearchCallback callback);
+    public void getCourseAsync(String id, SearchCallback callback);
 }

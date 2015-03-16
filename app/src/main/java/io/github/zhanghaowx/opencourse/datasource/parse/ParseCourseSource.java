@@ -3,6 +3,7 @@ package io.github.zhanghaowx.opencourse.datasource.parse;
 import android.util.Log;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -64,12 +65,27 @@ public class ParseCourseSource implements ICourseSource {
 
     @Override
     public void getCoursesAsync(Collection<SearchFilter> filters, SearchCallback callback) {
-
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(PARSE_OBJECT_CLASS_NAME);
     }
 
     @Override
-    public void getCourseAsync(int id, SearchCallback callback) {
+    public void getCourseAsync(String id, final SearchCallback callback) {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(PARSE_OBJECT_CLASS_NAME);
+        query.getInBackground(id, new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject parseObject, ParseException e) {
+                if (e == null) {
+                    Course course = getCourseFromParseObject(parseObject);
 
+                    List<Course> courses = new ArrayList<>();
+                    courses.add(course);
+
+                    callback.success(courses);
+                } else {
+                    Log.e(TAG, "Error retrieving information for course", e);
+                }
+            }
+        });
     }
 
     private Course getCourseFromParseObject(ParseObject courseObject) {
@@ -77,6 +93,7 @@ public class ParseCourseSource implements ICourseSource {
         course.setBannerImage(courseObject.getString("image"));
         course.setFaq(courseObject.getString("faq"));
         course.setShortSummary(courseObject.getString("short_summary"));
+        course.setSummary(courseObject.getString("summary"));
         course.setSubtitle(courseObject.getString("subtitle"));
         course.setSyllabus(courseObject.getString("syllabus"));
 

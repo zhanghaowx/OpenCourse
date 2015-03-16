@@ -1,7 +1,6 @@
 <android.support.v7.widget.CardView
     android:id="@+id/course_card_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -85,15 +84,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/course_card_view_progress"
-                    android:padding="@dimen/padding_eight">
+                    android:paddingLeft="@dimen/padding_four"
+                    android:paddingBottom="@dimen/padding_four">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/course_card_view_instructor_thumbnail"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/placeholder_user_profile_picture"
-                        app:border_color="#FF000000"
-                        app:border_width="2dp"/>
+                        android:src="@drawable/placeholder_user_profile_picture"/>
 
                     <TextView
                         android:id="@+id/course_card_view_instructor_name"

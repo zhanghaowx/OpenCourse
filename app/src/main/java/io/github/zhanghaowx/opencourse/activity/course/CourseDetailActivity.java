@@ -14,7 +14,8 @@ import io.github.zhanghaowx.opencourse.fragment.course.CourseDetailFragment;
 public class CourseDetailActivity extends BaseActivity {
     @Override
     protected Fragment getFragment() {
-        return new CourseDetailFragment();
+        String courseId = getIntent().getStringExtra(CourseDetailFragment.EXTRA_COURSE_ID);
+        return CourseDetailFragment.newInstance(courseId);
     }
 
     @Override

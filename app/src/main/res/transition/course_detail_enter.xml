@@ -10,7 +10,7 @@
             </transition>
             <fade>
                 <targets>
-                    <target android:targetId="@id/course_detail_introduction"/>
+                    <target android:targetId="@id/course_detail_course_summary"/>
                 </targets>
             </fade>
         </transitionSet>

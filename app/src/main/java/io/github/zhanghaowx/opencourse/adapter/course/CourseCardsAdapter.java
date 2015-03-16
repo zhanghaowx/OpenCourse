@@ -19,6 +19,7 @@ import java.util.List;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.activity.course.CourseDetailActivity;
+import io.github.zhanghaowx.opencourse.fragment.course.CourseDetailFragment;
 import io.github.zhanghaowx.opencourse.model.course.Course;
 import io.github.zhanghaowx.opencourse.model.course.Instructor;
 
@@ -112,13 +113,17 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
             mCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Course course = (Course)v.getTag();
+
+                    Intent intent = new Intent(mActivity, CourseDetailActivity.class);
+                    intent.putExtra(CourseDetailFragment.EXTRA_COURSE_ID, course.getId());
+
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(mActivity,
                                 mCourseImageView, mCourseImageView.getTransitionName());
-                        mActivity.startActivity(new Intent(mActivity, CourseDetailActivity.class),
-                                options.toBundle());
+                        mActivity.startActivity(intent, options.toBundle());
                     } else {
-                        mActivity.startActivity(new Intent(mActivity, CourseDetailActivity.class));
+                        mActivity.startActivity(intent);
                     }
                 }
             });
