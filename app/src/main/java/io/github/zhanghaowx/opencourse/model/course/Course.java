@@ -2,10 +2,13 @@ package io.github.zhanghaowx.opencourse.model.course;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Base class of a course, inspired by coursera public api
  * https://tech.coursera.org/app-platform/catalog/
+ * and Udacity developer API
+ * https://s3.amazonaws.com/content.udacity-data.com/techdocs/UdacityCourseCatalogAPIDocumentation-v0.pdf
  */
 public class Course extends BaseModel {
     /* REQUIRED */
@@ -14,9 +17,9 @@ public class Course extends BaseModel {
     // The course subtitle
     String mSubtitle;
     // The categories of the course
-    Collection<Category> mCategories;
+    List<Category> mCategories;
     // The instructors of the course
-    Collection<Instructor> mInstructors;
+    List<Instructor> mInstructors;
 
     /* OPTIONAL */
     // A course photo
@@ -46,7 +49,7 @@ public class Course extends BaseModel {
         return mTitle;
     }
 
-    public Collection<Category> getCategories() {
+    public List<Category> getCategories() {
         return mCategories;
     }
 
@@ -57,7 +60,7 @@ public class Course extends BaseModel {
         this.mCategories.add(category);
     }
 
-    public Collection<Instructor> getInstructors() {
+    public List<Instructor> getInstructors() {
         return mInstructors;
     }
 

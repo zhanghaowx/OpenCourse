@@ -7,7 +7,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -18,10 +18,13 @@ import io.github.zhanghaowx.opencourse.datasource.ICourseSource;
 import io.github.zhanghaowx.opencourse.datasource.utils.SearchCallback;
 import io.github.zhanghaowx.opencourse.datasource.utils.SearchFilter;
 import io.github.zhanghaowx.opencourse.model.course.Course;
+import io.github.zhanghaowx.opencourse.model.course.Instructor;
 
 /**
  * Course data provided from Parse platform.
  * See https://www.parse.com
+ * Data are initialized by Udacity courses
+ * https://www.udacity.com/public-api/v0/courses
  */
 public class ParseCourseSource implements ICourseSource {
     private final static String TAG = ParseCourseSource.class.getSimpleName();
@@ -79,13 +82,30 @@ public class ParseCourseSource implements ICourseSource {
 
         try {
             String teaserVideoJsonString = courseObject.getString("teaser_video");
-            if(teaserVideoJsonString != null && !teaserVideoJsonString.isEmpty()) {
+            if (teaserVideoJsonString != null && !teaserVideoJsonString.isEmpty()) {
                 JSONObject teaserVideoJson = new JSONObject(teaserVideoJsonString);
                 course.setTeaserVideo(teaserVideoJson.getString("youtube_url"));
             }
-        } catch (Exception parseException) {
-            Log.w(TAG, String.format("Error when parsing JSON string '%s', ignore teaser video for course %s",
-                    courseObject.getString("teaser_video"), courseObject.getObjectId()));
+        } catch (Exception e) {
+            Log.w(TAG, String.format("Error when parsing JSON string '%s', %s. Ignore teaser video for course %s",
+                    courseObject.getString("teaser_video"), e.getMessage(), courseObject.getObjectId()));
+        }
+
+        try {
+            JSONArray instructorsJsonArray = courseObject.getJSONArray("instructors");
+            if (instructorsJsonArray != null) {
+                for (int i = 0; i < instructorsJsonArray.length(); i++) {
+                    JSONObject instructorJson = instructorsJsonArray.getJSONObject(i);
+                    Instructor instructor = new Instructor(instructorJson.getString("name"), instructorJson.getString("name"));
+                    instructor.setBio(instructorJson.getString("bio"));
+                    instructor.setPhoto(instructorJson.getString("image"));
+
+                    course.addInstructor(instructor);
+                }
+            }
+        } catch (Exception e) {
+            Log.w(TAG, String.format("Error when parsing JSON string '%s', %s. Ignore instructors for course %s",
+                    courseObject.getString("instructors"), e.getMessage(), courseObject.getObjectId()));
         }
 
         return course;

@@ -51,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_six"
-                    android:text="232478 Attended"/>
+                    android:text="123 Attended"/>
 
                 <TextView
                     android:id="@+id/course_card_view_target"
@@ -88,7 +88,7 @@
                     android:padding="@dimen/padding_eight">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/course_card_view_teacher_thumbnail"
+                        android:id="@+id/course_card_view_instructor_thumbnail"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/placeholder_user_profile_picture"
@@ -96,29 +96,14 @@
                         app:border_width="2dp"/>
 
                     <TextView
-                        android:id="@+id/course_card_view_teacher_name"
+                        android:id="@+id/course_card_view_instructor_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/course_card_view_teacher_thumbnail"
+                        android:layout_toRightOf="@+id/course_card_view_instructor_thumbnail"
                         android:paddingLeft="@dimen/padding_ten"
                         android:paddingTop="@dimen/padding_four"
+                        android:text="Instructor Name"
                         android:textColor="@color/theme_default_light"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/course_card_view_teacher_name"
-                        android:paddingTop="@dimen/padding_four"
-                        android:text=","/>
-
-                    <TextView
-                        android:id="@+id/course_card_view_teacher_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/course_card_view_teacher_name"
-                        android:paddingLeft="@dimen/padding_ten"
-                        android:paddingTop="@dimen/padding_four"
-                        android:textColor="@color/theme_default_dark"/>
 
                 </RelativeLayout>
             </RelativeLayout>

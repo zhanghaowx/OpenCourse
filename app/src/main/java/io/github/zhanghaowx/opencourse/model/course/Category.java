@@ -1,8 +1,10 @@
 package io.github.zhanghaowx.opencourse.model.course;
 
 /**
- * Base class of a course's category, inspired by coursera public api
+ * Base class of a course's category, inspired by Coursera public api
  * https://tech.coursera.org/app-platform/catalog/
+ * and Udacity developer API
+ * https://s3.amazonaws.com/content.udacity-data.com/techdocs/UdacityCourseCatalogAPIDocumentation-v0.pdf
  */
 public class Category extends BaseModel {
 
