@@ -106,5 +106,6 @@
     <!-- Card View -->
     <dimen name="card_view_height">240dp</dimen>
     <dimen name="card_view_title_height">30dp</dimen>
+    <dimen name="card_view_instructor_image">48dp</dimen>
 
 </resources>

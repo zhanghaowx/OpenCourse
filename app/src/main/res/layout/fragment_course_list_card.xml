@@ -1,6 +1,7 @@
 <android.support.v7.widget.CardView
     android:id="@+id/course_card_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,6 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/card_view_height"
                 android:scaleType="centerCrop"
+                android:src="@drawable/placeholder_card_view"
                 android:transitionName="course:detail:header:image"/>
 
             <RelativeLayout
@@ -44,31 +46,35 @@
                 android:background="@color/background_default_dark_with_transparency"
                 android:orientation="vertical">
 
-                <TextView
+                <RelativeLayout
                     android:id="@+id/course_card_view_sponsors"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_six"
-                    android:text="123 Attended"/>
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/course_card_view_target"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/course_card_view_days_left"
-                    android:padding="@dimen/padding_six"
-                    android:text="100% Completed"/>
+                    <TextView
+                        android:id="@+id/course_card_view_sponsors_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_six"
+                        android:text="123 Attended"/>
 
-                <TextView
-                    android:id="@+id/course_card_view_days_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:paddingBottom="@dimen/padding_six"
-                    android:paddingLeft="@dimen/padding_twenty_four"
-                    android:paddingRight="@dimen/padding_eight"
-                    android:paddingTop="@dimen/padding_six"
-                    android:text="28 Days Left"/>
+                    <TextView
+                        android:id="@+id/course_card_view_target_percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/course_card_view_sponsors_count"
+                        android:padding="@dimen/padding_six"
+                        android:text="100% Completed"/>
+
+                    <TextView
+                        android:id="@+id/course_card_view_days_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/course_card_view_target_percent"
+                        android:padding="@dimen/padding_six"
+                        android:text="28 Days Left"/>
+                </RelativeLayout>
 
                 <ProgressBar
                     android:id="@+id/course_card_view_progress"
@@ -78,32 +84,26 @@
                     android:layout_below="@+id/course_card_view_sponsors"
                     android:progress="40"
                     android:progressTint="@color/accent"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/course_card_view_progress"
-                    android:paddingLeft="@dimen/padding_four"
-                    android:paddingBottom="@dimen/padding_four">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/course_card_view_instructor_thumbnail"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/placeholder_user_profile_picture"/>
-
-                    <TextView
-                        android:id="@+id/course_card_view_instructor_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/course_card_view_instructor_thumbnail"
-                        android:paddingLeft="@dimen/padding_ten"
-                        android:paddingTop="@dimen/padding_four"
-                        android:text="Instructor Name"
-                        android:textColor="@color/theme_default_light"/>
-
-                </RelativeLayout>
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/course_card_view_instructor_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/course_card_view_instructor_thumbnail"
+                    android:layout_width="@dimen/card_view_instructor_image"
+                    android:layout_height="@dimen/card_view_instructor_image"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="24dp"
+                    android:src="@drawable/placeholder_user_profile_picture"
+                    app:border_color="@android:color/white"
+                    app:border_width="1dp"/>
+            </RelativeLayout>
+
         </FrameLayout>
 
         <TextView
@@ -113,7 +113,6 @@
             android:background="@color/theme_default_light"
             android:padding="@dimen/padding_ten"
             android:textColor="@color/theme_default_font"/>
-
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

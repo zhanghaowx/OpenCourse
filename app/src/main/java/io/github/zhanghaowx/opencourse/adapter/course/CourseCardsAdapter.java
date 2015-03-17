@@ -66,7 +66,6 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
                 !courseCard.getInstructors().isEmpty()) {
             Instructor mainInstructor = courseCard.getInstructors().get(0);
 
-            holder.mInstructorNameView.setText(mainInstructor.getFullName());
             Picasso.with(holder.mInstructorImageView.getContext())
                     .load(mainInstructor.getPhoto())
                     .error(R.drawable.placeholder_user_profile_picture)
@@ -93,7 +92,6 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
         private ImageView mInstructorImageView;
         private TextView mCourseTitleView;
         private TextView mCourseShortSummaryView;
-        private TextView mInstructorNameView;
 
         private Activity mActivity;
 
@@ -108,7 +106,6 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
             mCourseShortSummaryView = (TextView) mCardView.findViewById(R.id.course_card_view_short_summary);
 
             mInstructorImageView = (ImageView) mCardView.findViewById(R.id.course_card_view_instructor_thumbnail);
-            mInstructorNameView = (TextView) mCardView.findViewById(R.id.course_card_view_instructor_name);
 
             mCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
