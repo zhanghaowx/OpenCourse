@@ -98,7 +98,9 @@
                     android:layout_height="@dimen/card_view_instructor_image"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="@dimen/margin_twenty_four"
+                    android:layout_marginRight="@dimen/margin_four"
+                    android:transitionName="course:detail:instructor:image"
                     android:src="@drawable/placeholder_user_profile_picture"
                     app:border_color="@android:color/white"
                     app:border_width="1dp"/>

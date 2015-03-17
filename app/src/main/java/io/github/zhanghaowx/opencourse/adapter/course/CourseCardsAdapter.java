@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,14 +111,16 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
             mCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Course course = (Course)v.getTag();
+                    Course course = (Course) v.getTag();
 
                     Intent intent = new Intent(mActivity, CourseDetailActivity.class);
                     intent.putExtra(CourseDetailFragment.EXTRA_COURSE_ID, course.getId());
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(mActivity,
-                                mCourseImageView, mCourseImageView.getTransitionName());
+                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
+                                mActivity,
+                                Pair.create((View) mCourseImageView, mCourseImageView.getTransitionName()),
+                                Pair.create((View) mInstructorImageView, mInstructorImageView.getTransitionName()));
                         mActivity.startActivity(intent, options.toBundle());
                     } else {
                         mActivity.startActivity(intent);

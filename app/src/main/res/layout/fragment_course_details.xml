@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/card_view_height"
             android:scaleType="centerCrop"
-            android:src="@drawable/placeholder_title_image"
             android:transitionName="course:detail:header:image"/>
 
         <RelativeLayout
@@ -79,6 +78,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:src="@drawable/placeholder_user_profile_picture"
+                android:transitionName="course:detail:instructor:image"
                 app:border_color="#FFFFFF"
                 app:border_width="2dp"/>
 

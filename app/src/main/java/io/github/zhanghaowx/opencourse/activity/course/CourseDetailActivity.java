@@ -49,7 +49,7 @@ public class CourseDetailActivity extends BaseActivity {
 
     @Override
     protected int getEnterTransition() {
-        return R.transition.default_transition;
+        return R.transition.course_detail_enter;
     }
 
     @Override

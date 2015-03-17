@@ -50,4 +50,6 @@ public class CourseListActivity extends NavigationDrawerActivity {
     public void onNavigationDrawerItemSelected(int position) {
         // create different fragment for different selections
     }
+
+
 }

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
-               android:transitionOrdering="together">
+<transitionSet
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:transitionOrdering="together">
     <transitionSet android:transitionOrdering="sequential">
         <transitionSet android:transitionOrdering="together">
             <transition class="io.github.zhanghaowx.opencourse.transition.Fold">
                 <targets>
-                    <target android:targetId="@id/course_detail_header_image"/>
+                    <target android:targetId="@id/course_detail_title_container"/>
                 </targets>
             </transition>
             <fade>
                 <targets>
                     <target android:targetId="@id/course_detail_course_summary"/>
+                    <target android:targetId="@id/course_detail_course_faq"/>
                 </targets>
             </fade>
         </transitionSet>
