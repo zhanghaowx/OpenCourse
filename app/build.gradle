@@ -1,4 +1,16 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // Robolectric Test Framework
+        classpath 'org.robolectric:robolectric-gradle-plugin:1.+'
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'org.robolectric'
 
 android {
     compileSdkVersion 21
@@ -11,24 +23,39 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     lintOptions {
         abortOnError false
+    }
+
+    sourceSets {
+        androidTest {
+            setRoot('src/test')
+            //res.srcDirs = ['src/test/resources']
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
     /***** Android Dependencies *****/
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.android.support:recyclerview-v7:21.0.0'
     compile 'com.android.support:cardview-v7:21.0.0'
+
     /***** External Dependencies *****/
     // Interactive paging indicator widget, compatible with the ViewPager
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
@@ -44,5 +71,8 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.2.2'
     // Parse
     compile 'com.parse.bolts:bolts-android:1.+'
-    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+
+    /***** TEST  DEPENDENCIES *****/
+    androidTestCompile 'junit:junit:4.+'
+    androidTestCompile 'org.robolectric:robolectric:3.0-SNAPSHOT'
 }

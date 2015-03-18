@@ -8,7 +8,7 @@ import com.parse.ParseObject;
 /**
  * The OpenCourse application
  */
-public final class OpenCourseApplication extends Application {
+public class OpenCourseApplication extends Application {
     public static final String PARSE_APPLICATION_ID = "dIfjPyWxb27y8bOsUyRrQBDeTQOatdLtuiR0pgvT";
     public static final String PARSE_CLIENT_KEY = "3xXJCl8Uqg1LvtnvI6Ky3qpXxUH6RZCYJ0THvHob";
 
