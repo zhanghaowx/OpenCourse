@@ -23,12 +23,15 @@ android {
 }
 
 dependencies {
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
     /***** Android Dependencies *****/
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.android.support:recyclerview-v7:21.0.0'
     compile 'com.android.support:cardview-v7:21.0.0'
+
     /***** External Dependencies *****/
     // Interactive paging indicator widget, compatible with the ViewPager
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
@@ -44,5 +47,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.2.2'
     // Parse
     compile 'com.parse.bolts:bolts-android:1.+'
-    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+    
 }
