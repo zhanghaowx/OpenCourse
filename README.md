@@ -9,4 +9,6 @@ The app will try to follow Google's [Material Design Guidelines](http://www.goog
 [![wercker status](https://app.wercker.com/status/cd827c3405da7ecbe93bb920560fabf5/m "wercker status")](https://app.wercker.com/project/bykey/cd827c3405da7ecbe93bb920560fabf5)
 
 ### Compile
+```
 ./gradlew build
+```
