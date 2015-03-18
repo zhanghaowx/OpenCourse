@@ -48,6 +48,7 @@ android {
 }
 
 dependencies {
+    // TODO: Download robolectric jar (with dependencies) file after v3.0 is released
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     /***** Android Dependencies *****/
@@ -73,6 +74,7 @@ dependencies {
     compile 'com.parse.bolts:bolts-android:1.+'
 
     /***** TEST  DEPENDENCIES *****/
-    androidTestCompile 'junit:junit:4.+'
-    androidTestCompile 'org.robolectric:robolectric:3.0-SNAPSHOT'
+    testCompile 'junit:junit:4.+'
+    // TODO: Update robolectric version after v3.0 is released
+    testCompile 'org.robolectric:robolectric:2.4'
 }

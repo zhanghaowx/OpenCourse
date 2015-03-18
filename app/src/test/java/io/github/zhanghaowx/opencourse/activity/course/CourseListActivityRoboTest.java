@@ -4,12 +4,14 @@ import android.app.Activity;
 
 import junit.framework.Assert;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 
 import io.github.zhanghaowx.opencourse.TestOpenCourseRunner;
 
+@Ignore
 @RunWith(TestOpenCourseRunner.class)
 public class CourseListActivityRoboTest {
     @Test

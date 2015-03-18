@@ -2,10 +2,6 @@
 buildscript {
     repositories {
         mavenCentral()
-        maven {
-            url 'https://oss.sonatype.org/content/repositories/snapshots/'
-        }
-
         jcenter()
     }
 
@@ -17,11 +13,5 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-
-        /* Use snapshot version for robolectric since support for Android L is not officially released */
-        maven {
-            url 'https://oss.sonatype.org/content/repositories/snapshots/'
-        }
-
     }
 }
