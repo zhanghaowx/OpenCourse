@@ -24,12 +24,12 @@ public class CourseDetailActivity extends BaseActivity {
     }
 
     @Override
-    protected int getLayout() {
+    protected int getLayoutId() {
         return R.layout.activity_default;
     }
 
     @Override
-    protected int getToolbar() {
+    protected int getToolbarId() {
         return R.id.activity_default_toolbar;
     }
 

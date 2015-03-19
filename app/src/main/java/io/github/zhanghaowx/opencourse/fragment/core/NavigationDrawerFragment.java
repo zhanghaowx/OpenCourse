@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.adapter.core.DrawerMenuAdapter;
 import io.github.zhanghaowx.opencourse.model.core.DrawerMenu;
+import io.github.zhanghaowx.opencourse.utils.SharedPreferenceNames;
 
 /**
  * Fragment used for interaction management and presentation to the drawer menu
@@ -32,25 +33,32 @@ public class NavigationDrawerFragment extends BaseFragment {
      * Remember the position of the selected item
      */
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
-    /**
-     * For design guidelines, you should show the drawer menu until the user expands it manually
-     */
-    private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
+
     /**
      * A pointer to the current callbacks instance (the Activity).
      */
     private NavigationDrawerCallbacks mCallbacks;
+
     /**
-     * Component
+     * View Components
      */
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private View mDrawerView;
     private ListView mDrawerListView;
+
+    /**
+     * Saved States
+     */
     private View mFragmentContainerView;
-    private boolean mUserLearnedDrawer;
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState = false;
+
+    /**
+     * Shared preferences
+     */
+    private boolean mUserLearnedDrawer;
+    private String mUserLoginSessionId;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +68,7 @@ public class NavigationDrawerFragment extends BaseFragment {
         // demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
+        mUserLearnedDrawer = sp.getBoolean(SharedPreferenceNames.PREF_USER_LEARNED_DRAWER, false);
 
         if (savedInstanceState != null) {
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
@@ -184,7 +192,7 @@ public class NavigationDrawerFragment extends BaseFragment {
                     mUserLearnedDrawer = true;
                     SharedPreferences sp = PreferenceManager
                             .getDefaultSharedPreferences(getActivity());
-                    sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
+                    sp.edit().putBoolean(SharedPreferenceNames.PREF_USER_LEARNED_DRAWER, true).apply();
                 }
 
                 getActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
@@ -214,16 +222,23 @@ public class NavigationDrawerFragment extends BaseFragment {
      * @return
      */
     private ArrayList<DrawerMenu> getDrawerMenuItems() {
-        ArrayList<DrawerMenu> menuDrawerListItems = new ArrayList<DrawerMenu>();
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mUserLoginSessionId = sp.getString(SharedPreferenceNames.PREF_USER_SESSION_ID, null);
 
+        ArrayList<DrawerMenu> menuDrawerListItems = new ArrayList<DrawerMenu>();
         try {
             Resources res = getActivity().getResources();
-            menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_myAccount), R.drawable.ic_account_circle_white_24dp));
-            menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_notification), R.drawable.ic_notifications_white_24dp));
-            menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_settings), R.drawable.ic_settings_white_24dp));
+            if (mUserLoginSessionId != null) {
+                menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_myAccount), R.drawable.ic_account_circle_white_24dp));
+                menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_notification), R.drawable.ic_notifications_white_24dp));
+                menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_settings), R.drawable.ic_settings_white_24dp));
+            } else {
+                menuDrawerListItems.add(new DrawerMenu(res.getString(R.string.fragment_drawerMenu_item_login), R.drawable.ic_account_circle_white_24dp));
+            }
         } catch (Resources.NotFoundException notFoundException) {
             Log.e(TAG, "Error Getting Drawer Menu Title Array", notFoundException);
         }
+
 
         return menuDrawerListItems;
     }

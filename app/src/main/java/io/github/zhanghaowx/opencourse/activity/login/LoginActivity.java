@@ -8,12 +8,14 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentResolver;
 import android.content.CursorLoader;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -30,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.github.zhanghaowx.opencourse.R;
+import io.github.zhanghaowx.opencourse.utils.SharedPreferenceNames;
 
 /**
  * A login screen that offers login via email/password.
@@ -288,6 +291,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
 
             if (success) {
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                sp.edit().putString(SharedPreferenceNames.PREF_USER_SESSION_ID, "Fake_Session_Id").apply();
+
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

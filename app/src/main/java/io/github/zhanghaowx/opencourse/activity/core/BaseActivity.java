@@ -8,12 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
-import android.view.View;
 import android.view.Window;
-
-import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
-
-import io.github.zhanghaowx.opencourse.R;
 
 /**
  * This is the base class for any activity that contains
@@ -42,14 +37,14 @@ public abstract class BaseActivity extends ActionBarActivity {
      *
      * @return
      */
-    protected abstract int getLayout();
+    protected abstract int getLayoutId();
 
     /**
      * Returns resource id for tool bar
      *
      * @return
      */
-    protected abstract int getToolbar();
+    protected abstract int getToolbarId();
 
     /**
      * Returns resource id for the enter transition of this activity
@@ -84,8 +79,8 @@ public abstract class BaseActivity extends ActionBarActivity {
             }
         }
 
-        setContentView(getLayout());
-        setToolbar(getToolbar());
+        setContentView(getLayoutId());
+        setToolbar(getToolbarId());
     }
 
     /**
@@ -105,11 +100,14 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     /**
      * Setup action tool bar
+     *
      * @param toolbarId
      */
     private void setToolbar(int toolbarId) {
         mToolbar = (Toolbar) findViewById(toolbarId);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }
     }
 }

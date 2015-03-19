@@ -22,12 +22,12 @@ public class CourseListActivity extends NavigationDrawerActivity {
     }
 
     @Override
-    protected int getLayout() {
+    protected int getLayoutId() {
         return R.layout.activity_with_drawer_menu;
     }
 
     @Override
-    protected int getToolbar() {
+    protected int getToolbarId() {
         return R.id.activity_with_drawer_menu_toolbar;
     }
 
@@ -43,13 +43,7 @@ public class CourseListActivity extends NavigationDrawerActivity {
 
     @Override
     protected int getActionBarTitle() {
-        return R.string.courselist_actionbar_title;
+        return R.string.course_list_actionbar_title;
     }
-
-    @Override
-    public void onNavigationDrawerItemSelected(int position) {
-        // create different fragment for different selections
-    }
-
 
 }
