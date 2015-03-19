@@ -1,6 +1,6 @@
 <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/course_details_scroll"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -25,8 +25,8 @@
                 android:id="@+id/course_detail_header_image_overlay"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/course_detail_header_image_height"
-                android:background="@color/background_default_primary"
-                android:alpha="0"/>
+                android:alpha="0"
+                android:background="@color/background_default_primary"/>
 
         </FrameLayout>
 
@@ -68,56 +68,90 @@
             android:background="@drawable/background_circle_pink_60dp"
             android:src="@drawable/ic_favorite_outline_white_36dp"/>
 
-        <LinearLayout
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <RelativeLayout
             android:id="@+id/course_detail_instructor_info_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/course_detail_title_container"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
             android:background="@android:color/white"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/course_detail_instructor_profile_image"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:src="@drawable/placeholder_user_profile_picture"
-                android:transitionName="course:detail:instructor:image"
-                app:border_color="#FFFFFF"
-                app:border_width="2dp"/>
+                android:transitionName="course:detail:instructor:image"/>
 
-            <TextView
-                android:id="@+id/course_detail_instructor_name"
+            <RelativeLayout
+                android:id="@+id/course_detail_instructor_name_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/course_detail_instructor_profile_image"
-                android:paddingBottom="@dimen/sixteen"
-                android:paddingLeft="@dimen/sixteen"
-                android:paddingRight="@dimen/sixteen"
-                android:paddingTop="@dimen/sixteen"
-                android:text="Instructor Name"
-                android:textColor="@android:color/black"/>
-        </LinearLayout>
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/course_detail_instructor_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padding_sixteen"
+                    android:paddingTop="@dimen/padding_sixteen"
+                    android:text="Instructor Name"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
+
+                <RatingBar
+                    android:id="@+id/course_detail_instructor_rating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/padding_sixteen"
+                    android:layout_toRightOf="@+id/course_detail_instructor_name"
+                    android:gravity="center_vertical"
+                    android:max="5"
+                    android:numStars="5"
+                    android:rating="0.0"
+                    android:stepSize="0.0"/>
+
+                <TextView
+                    android:id="@+id/course_detail_instructor_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/course_detail_instructor_name"
+                    android:paddingLeft="@dimen/padding_sixteen"
+                    android:text="Instructor"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_twelve"/>
+
+                <TextView
+                    android:id="@+id/course_detail_instructor_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/course_detail_instructor_title"
+                    android:paddingBottom="@dimen/padding_sixteen"
+                    android:paddingLeft="@dimen/padding_sixteen"
+                    android:paddingRight="@dimen/padding_six"
+                    android:text="Instructor Bio"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_ten"/>
+            </RelativeLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/course_detail_summary_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/course_detail_instructor_info_container"
-            android:orientation="vertical"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/course_detail_course_summary"
@@ -134,11 +168,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/course_detail_summary_container"
-            android:orientation="vertical"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/course_detail_course_faq"

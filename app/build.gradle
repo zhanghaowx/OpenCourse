@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "io.github.zhanghaowx.opencourse"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -47,5 +47,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.2.2'
     // Parse
     compile 'com.parse.bolts:bolts-android:1.+'
+    // Skip the HTML, Bypass takes markdown and renders it directly on Android and iOS.
+    compile 'in.uncod.android.bypass:bypass:1.1'
     
 }

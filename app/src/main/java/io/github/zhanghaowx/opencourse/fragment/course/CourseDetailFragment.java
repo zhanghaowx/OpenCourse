@@ -125,6 +125,7 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
                             .placeholder(R.drawable.placeholder_user_profile_picture)
                             .into(mViewHolder.mInstructorImageView);
                     mViewHolder.mInstructorNameView.setText(mainInstructor.getFullName());
+                    mViewHolder.mInstructorBioView.setText(mainInstructor.getBio());
                 } else {
                     Log.d(TAG, String.format("Instructor information is not found for course <%s>", mCourse.getTitle()));
                 }
@@ -248,6 +249,7 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
 
         private ImageView mInstructorImageView;
         private TextView mInstructorNameView;
+        private TextView mInstructorBioView;
 
         private TextView mCourseSummaryView;
         private TextView mCourseFaqView;
@@ -269,6 +271,7 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
 
             mInstructorImageView = (ImageView) itemView.findViewById(R.id.course_detail_instructor_profile_image);
             mInstructorNameView = (TextView) itemView.findViewById(R.id.course_detail_instructor_name);
+            mInstructorBioView = (TextView) itemView.findViewById(R.id.course_detail_instructor_bio);
 
             mCourseSummaryView = (TextView) itemView.findViewById(R.id.course_detail_course_summary);
             mCourseFaqView = (TextView) itemView.findViewById(R.id.course_detail_course_faq);
