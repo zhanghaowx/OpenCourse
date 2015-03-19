@@ -47,7 +47,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.2.2'
     // Parse
     compile 'com.parse.bolts:bolts-android:1.+'
-    // Skip the HTML, Bypass takes markdown and renders it directly on Android and iOS.
-    compile 'in.uncod.android.bypass:bypass:1.1'
-    
+
 }
