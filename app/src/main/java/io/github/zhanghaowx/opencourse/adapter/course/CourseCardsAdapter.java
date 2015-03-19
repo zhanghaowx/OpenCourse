@@ -7,7 +7,6 @@ import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,8 +118,7 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
                                 mActivity,
-                                Pair.create((View) mCourseImageView, mCourseImageView.getTransitionName()),
-                                Pair.create((View) mInstructorImageView, mInstructorImageView.getTransitionName()));
+                                mCourseImageView, mCourseImageView.getTransitionName());
                         mActivity.startActivity(intent, options.toBundle());
                     } else {
                         mActivity.startActivity(intent);

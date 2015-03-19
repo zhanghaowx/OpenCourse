@@ -21,7 +21,7 @@ import io.github.zhanghaowx.opencourse.R;
  */
 public abstract class BaseActivity extends ActionBarActivity {
 
-    public Toolbar mToolbar;
+    protected Toolbar mToolbar;
 
     /**
      * Create a fragment for this activity.
@@ -110,6 +110,6 @@ public abstract class BaseActivity extends ActionBarActivity {
     private void setToolbar(int toolbarId) {
         mToolbar = (Toolbar) findViewById(toolbarId);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 }

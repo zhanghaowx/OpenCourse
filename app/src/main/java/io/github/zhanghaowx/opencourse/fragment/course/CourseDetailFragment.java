@@ -1,12 +1,16 @@
 package io.github.zhanghaowx.opencourse.fragment.course;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +19,7 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCal
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
+import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -31,12 +36,23 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
     public static final String EXTRA_COURSE_ID = "courseId";
 
     private static final String TAG = CourseDetailFragment.class.getSimpleName();
+    private static final float MAX_TEXT_SCALE_DELTA = 0.1f;
 
     private Course mCourse;
     private CourseDetailViewHolder mViewHolder;
     private ObservableScrollView mScrollView;
 
-    private int mParallaxImageHeight;
+    // Flexible Space (Header Image Space)
+    private int mFlexibleSpaceShowFabOffset;
+    private int mFlexibleSpaceImageHeight;
+
+    // Floating Action Button (Favorite Button)
+    private int mFabMargin;
+    private boolean mFabIsShown;
+
+    // Action Bar
+    private int mActionBarSize;
+
 
     /**
      * Create by a course ID
@@ -64,9 +80,16 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.card_view_height);
 
-        changeActionBarTransparency(0);
+        // Hide action bar
+        BaseActivity baseActivity = (BaseActivity) activity;
+        baseActivity.getSupportActionBar().hide();
+
+        mActionBarSize = baseActivity.getSupportActionBar().getHeight();
+
+        mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.course_detail_header_image_height);
+        mFlexibleSpaceShowFabOffset = getResources().getDimensionPixelOffset(R.dimen.course_detail_show_fab_offset);
+
     }
 
     @Override
@@ -105,7 +128,6 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
                 } else {
                     Log.d(TAG, String.format("Instructor information is not found for course <%s>", mCourse.getTitle()));
                 }
-
             }
         });
 
@@ -135,14 +157,73 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
-        float alpha = 1 - Math.max(0.0f, mParallaxImageHeight - scrollY) / mParallaxImageHeight;
-        alpha = Math.min(1.0f, alpha);
+        translateOverlayAndImage(scrollY);
+        showHideFabButton(scrollY);
+    }
 
-        // color of the toolbar changes when user scrolls
-        changeActionBarTransparency(alpha);
+    private void translateOverlayAndImage(int scrollY) {
+        // Translate overlay and image
 
-        // parallax scrolling
-        ViewHelper.setTranslationY(mViewHolder.mCourseImageView, scrollY / 3);
+        ViewHelper.setTranslationY(mViewHolder.mCourseImageOverlayView, scrollY / 4);
+        ViewHelper.setTranslationY(mViewHolder.mCourseImageView, scrollY / 4);
+
+        // Change alpha of overlay && toolbar
+        float flexibleRange = mFlexibleSpaceImageHeight - mActionBarSize;
+        float alpha = ScrollUtils.getFloat((float) scrollY / flexibleRange, 0, 1);
+
+        ViewHelper.setAlpha(mViewHolder.mCourseImageOverlayView, alpha);
+    }
+
+    private void scaleTitleText(int scrollY) {
+        float flexibleRange = mFlexibleSpaceImageHeight - mActionBarSize;
+        float scale = 1 - MAX_TEXT_SCALE_DELTA + ScrollUtils.getFloat(1 - (float) scrollY / flexibleRange, 0, 1) * MAX_TEXT_SCALE_DELTA;
+        ViewHelper.setPivotX(mViewHolder.mCourseTitleView, 0);
+        ViewHelper.setPivotY(mViewHolder.mCourseTitleView, 0);
+        ViewHelper.setScaleX(mViewHolder.mCourseTitleView, scale);
+        ViewHelper.setScaleY(mViewHolder.mCourseTitleView, scale);
+    }
+
+    private void changeActionBarTransparency(float alpha) {
+        int baseColor = getResources().getColor(R.color.theme_default_primary);
+        ColorDrawable backgroundDrawable =
+                new ColorDrawable(ScrollUtils.getColorWithAlpha(alpha, baseColor));
+
+        BaseActivity baseActivity = (BaseActivity) getActivity();
+        baseActivity.getSupportActionBar().setBackgroundDrawable(backgroundDrawable);
+    }
+
+    /**
+     * Show/Hide Favorite Button
+     * @param scrollY
+     */
+    private void showHideFabButton(int scrollY) {
+        int maxFabTranslationY = mFlexibleSpaceImageHeight - mViewHolder.mFab.getHeight() / 2;
+        float fabTranslationY = ScrollUtils.getFloat(
+                -scrollY + mFlexibleSpaceImageHeight - mViewHolder.mFab.getHeight() / 2,
+                mActionBarSize - mViewHolder.mFab.getHeight() / 2,
+                maxFabTranslationY);
+
+        if (fabTranslationY < mFlexibleSpaceShowFabOffset) {
+            hideFab();
+        } else {
+            showFab();
+        }
+    }
+
+    private void showFab() {
+        if (!mFabIsShown) {
+            ViewPropertyAnimator.animate(mViewHolder.mFab).cancel();
+            ViewPropertyAnimator.animate(mViewHolder.mFab).scaleX(1).scaleY(1).setDuration(200).start();
+            mFabIsShown = true;
+        }
+    }
+
+    private void hideFab() {
+        if (mFabIsShown) {
+            ViewPropertyAnimator.animate(mViewHolder.mFab).cancel();
+            ViewPropertyAnimator.animate(mViewHolder.mFab).scaleX(0).scaleY(0).setDuration(200).start();
+            mFabIsShown = false;
+        }
     }
 
     @Override
@@ -155,20 +236,12 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
 
     }
 
-    private void changeActionBarTransparency(float alpha) {
-        int baseColor = getResources().getColor(R.color.theme_default_primary);
-        ColorDrawable backgroundDrawable =
-                new ColorDrawable(ScrollUtils.getColorWithAlpha(alpha, baseColor));
-
-        BaseActivity baseActivity = (BaseActivity) getActivity();
-        baseActivity.getSupportActionBar().setBackgroundDrawable(backgroundDrawable);
-    }
-
-    private void changeActionBarHeight(float height) {
-        BaseActivity baseActivity = (BaseActivity) getActivity();
-    }
-
+    /**
+     * Holder class to manage all views belong to course details page
+     */
     public static class CourseDetailViewHolder {
+
+        private View mCourseImageOverlayView;
         private ImageView mCourseImageView;
         private TextView mCourseTitleView;
         private TextView mCourseSubtitleView;
@@ -179,11 +252,17 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
         private TextView mCourseSummaryView;
         private TextView mCourseFaqView;
 
+        private View mToolbarBackground;
+        private ImageButton mFab;
+
         private Activity mActivity;
 
         public CourseDetailViewHolder(Activity activity, View itemView) {
             mActivity = activity;
 
+            mFab = (ImageButton) itemView.findViewById(R.id.course_detail_favorite_button);
+
+            mCourseImageOverlayView = itemView.findViewById(R.id.course_detail_header_image_overlay);
             mCourseImageView = (ImageView) itemView.findViewById(R.id.course_detail_header_image);
             mCourseTitleView = (TextView) itemView.findViewById(R.id.course_detail_title);
             mCourseSubtitleView = (TextView) itemView.findViewById(R.id.course_detail_subtitle);

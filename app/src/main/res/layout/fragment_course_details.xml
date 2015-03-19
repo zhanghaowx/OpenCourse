@@ -13,9 +13,22 @@
         <ImageView
             android:id="@+id/course_detail_header_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/card_view_height"
+            android:layout_height="@dimen/course_detail_header_image_height"
             android:scaleType="centerCrop"
             android:transitionName="course:detail:header:image"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/course_detail_header_image_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/course_detail_header_image_height"
+                android:background="@color/background_default_primary"
+                android:alpha="0"/>
+
+        </FrameLayout>
 
         <RelativeLayout
             android:id="@+id/course_detail_title_container"

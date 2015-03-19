@@ -106,7 +106,12 @@
     <!-- Card View -->
     <dimen name="card_view_height">240dp</dimen>
     <dimen name="card_view_title_height">30dp</dimen>
-    <dimen name="card_view_instructor_image">48dp</dimen>
+    <dimen name="card_view_thumbnail_image">48dp</dimen>
+
+    <!-- Course Detail -->
+    <dimen name="course_detail_header_image_height">240dp</dimen>
+    <dimen name="course_detail_show_fab_offset">30dp</dimen>
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

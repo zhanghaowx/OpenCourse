@@ -94,8 +94,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/course_card_view_instructor_thumbnail"
-                    android:layout_width="@dimen/card_view_instructor_image"
-                    android:layout_height="@dimen/card_view_instructor_image"
+                    android:layout_width="@dimen/card_view_thumbnail_image"
+                    android:layout_height="@dimen/card_view_thumbnail_image"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginBottom="@dimen/margin_twenty_four"
