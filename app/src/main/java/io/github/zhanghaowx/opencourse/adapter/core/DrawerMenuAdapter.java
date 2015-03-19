@@ -26,6 +26,10 @@ public class DrawerMenuAdapter extends BaseAdapter {
         this.mListItemsInDrawerMenu = listItems;
     }
 
+    public ArrayList<DrawerMenu> getListItemsInDrawerMenu() {
+        return mListItemsInDrawerMenu;
+    }
+
     @Override
     public int getCount() {
         return mListItemsInDrawerMenu.size();

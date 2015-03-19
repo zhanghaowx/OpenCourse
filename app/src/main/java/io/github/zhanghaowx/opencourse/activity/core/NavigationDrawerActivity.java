@@ -16,6 +16,8 @@ import io.github.zhanghaowx.opencourse.utils.SharedPreferenceNames;
  */
 public abstract class NavigationDrawerActivity extends BaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
+    private static final int REQUEST_LOGIN = 0;
+
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     /**
@@ -43,9 +45,17 @@ public abstract class NavigationDrawerActivity extends BaseActivity implements N
 
                 } else {
                     Intent intent = new Intent(this, LoginActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent, REQUEST_LOGIN);
                 }
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_LOGIN) {
+            mNavigationDrawerFragment.requestUpdateMenu();
         }
     }
 

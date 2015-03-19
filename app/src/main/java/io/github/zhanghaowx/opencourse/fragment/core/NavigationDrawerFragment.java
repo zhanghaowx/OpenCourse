@@ -80,7 +80,6 @@ public class NavigationDrawerFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mDrawerView = inflater.inflate(R.layout.fragment_drawer_menu, container, false);
-
         mDrawerListView = (ListView) mDrawerView.findViewById(R.id.fragment_drawerMenu_listView);
         DrawerMenuAdapter drawerMenuAdapter = new DrawerMenuAdapter(mContext, getDrawerMenuItems());
         mDrawerListView.setAdapter(drawerMenuAdapter);
@@ -217,6 +216,17 @@ public class NavigationDrawerFragment extends BaseFragment {
     }
 
     /**
+     * Request update draw menu's content after user logged in
+     */
+    public void requestUpdateMenu() {
+        DrawerMenuAdapter adapter = (DrawerMenuAdapter) mDrawerListView.getAdapter();
+        adapter.getListItemsInDrawerMenu().clear();
+        adapter.getListItemsInDrawerMenu().addAll(getDrawerMenuItems());
+        adapter.notifyDataSetChanged();
+    }
+
+
+    /**
      * Read drawer menu titles from resources file and create a list to hold them.
      *
      * @return
@@ -224,7 +234,6 @@ public class NavigationDrawerFragment extends BaseFragment {
     private ArrayList<DrawerMenu> getDrawerMenuItems() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mUserLoginSessionId = sp.getString(SharedPreferenceNames.PREF_USER_SESSION_ID, null);
-
         ArrayList<DrawerMenu> menuDrawerListItems = new ArrayList<DrawerMenu>();
         try {
             Resources res = getActivity().getResources();
