@@ -1,18 +1,29 @@
 package io.github.zhanghaowx.opencourse.activity.login;
 
+import android.app.LoaderManager.LoaderCallbacks;
+import android.content.CursorLoader;
+import android.content.Loader;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.activity.core.BaseActivity;
-import io.github.zhanghaowx.opencourse.fragment.login.LoginFragment;
+import io.github.zhanghaowx.opencourse.fragment.login.LoginEmailFragment;
 
 /**
- * Created by hao on 3/19/15.
+ * A login screen that offers login via email/password.
  */
-public class LoginActivity extends BaseActivity {
+public class LoginEmailActivity extends BaseActivity {
+
     @Override
     protected Fragment getFragment() {
-        return new LoginFragment();
+        return new LoginEmailFragment();
     }
 
     @Override
@@ -30,3 +41,6 @@ public class LoginActivity extends BaseActivity {
         return 0;
     }
 }
+
+
+

@@ -1,6 +1,4 @@
-package io.github.zhanghaowx.opencourse.utils;
-
-import android.content.Context;
+package io.github.zhanghaowx.opencourse.bus;
 
 import com.squareup.otto.Bus;
 

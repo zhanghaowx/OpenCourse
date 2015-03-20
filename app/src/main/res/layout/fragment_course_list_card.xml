@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/card_view_height"
                 android:scaleType="centerCrop"
-                android:src="@drawable/placeholder_card_view"
+                android:src="@drawable/placeholder_image"
                 android:transitionName="course:detail:header:image"/>
 
             <RelativeLayout
@@ -100,7 +100,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginBottom="@dimen/margin_twenty_four"
                     android:layout_marginRight="@dimen/margin_four"
-                    android:src="@drawable/placeholder_user_profile_picture"
+                    android:src="@drawable/placeholder_image_user_profile"
                     android:transitionName="course:detail:instructor:image"
                     app:border_color="@android:color/white"
                     app:border_width="1dp"/>

@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/background_activity_login"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              tools:context=".activity.login.LoginActivity">
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_sixteen">
+
+            <Button
+                android:id="@+id/email_sign_in_button"
+                style="?android:textAppearance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="16dp"
+                android:background="@color/theme_default_primary"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_sixteen"
+                android:text="@string/action_sign_in_with_mail"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/padding_sixteen"
+                android:text="OR"/>
+
+            <Button
+                android:id="@+id/facebook_sign_in_button"
+                style="?android:textAppearance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_sixteen"
+                android:background="@color/facebook"
+                android:paddingLeft="@dimen/padding_sixteen"
+                android:text="@string/action_sign_in_with_facebook"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/google_sign_in_button"
+                style="?android:textAppearance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_sixteen"
+                android:background="@color/googleplus"
+                android:paddingLeft="@dimen/padding_sixteen"
+                android:text="@string/action_sign_in_with_google"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+
+
+

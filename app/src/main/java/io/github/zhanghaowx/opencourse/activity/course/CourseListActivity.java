@@ -32,7 +32,7 @@ public class CourseListActivity extends NavigationDrawerActivity {
     }
 
     @Override
-    protected int getEnterTransition() {
+    protected int getEnterTransitionId() {
         return R.transition.default_transition;
     }
 

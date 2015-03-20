@@ -1,4 +1,4 @@
-package io.github.zhanghaowx.opencourse.utils;
+package io.github.zhanghaowx.opencourse.font;
 
 import android.content.Context;
 import android.graphics.Typeface;

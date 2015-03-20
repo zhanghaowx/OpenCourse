@@ -25,7 +25,7 @@ public class CourseDetailActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_default;
+        return R.layout.activity_default_actionbar;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class CourseDetailActivity extends BaseActivity {
     }
 
     @Override
-    protected int getEnterTransition() {
+    protected int getEnterTransitionId() {
         return R.transition.course_detail_enter;
     }
 

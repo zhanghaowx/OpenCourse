@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_two"
         android:layout_toRightOf="@id/fragment_drawerMenu_item_title"
-        android:background="@drawable/background_rounded_corners_red"
+        android:background="@drawable/background_notification_rounded_corners_red"
         android:paddingLeft="@dimen/padding_four"
         android:paddingRight="@dimen/padding_four"
         android:text="999"

@@ -1,10 +1,7 @@
 package io.github.zhanghaowx.opencourse.fragment.course;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -106,8 +103,8 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
 
                 Picasso.with(mViewHolder.mCourseImageView.getContext())
                         .load(mCourse.getBannerImage())
-                        .error(R.drawable.placeholder_card_view)
-                        .placeholder(R.drawable.placeholder_card_view)
+                        .error(R.drawable.placeholder_image)
+                        .placeholder(R.drawable.placeholder_image)
                         .into(mViewHolder.mCourseImageView);
                 mViewHolder.mCourseTitleView.setText(mCourse.getTitle());
                 mViewHolder.mCourseSubtitleView.setText(mCourse.getSubtitle());
@@ -121,8 +118,8 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
 
                     Picasso.with(mViewHolder.mInstructorImageView.getContext())
                             .load(mainInstructor.getPhoto())
-                            .error(R.drawable.placeholder_user_profile_picture)
-                            .placeholder(R.drawable.placeholder_user_profile_picture)
+                            .error(R.drawable.placeholder_image_user_profile)
+                            .placeholder(R.drawable.placeholder_image_user_profile)
                             .into(mViewHolder.mInstructorImageView);
                     mViewHolder.mInstructorNameView.setText(mainInstructor.getFullName());
                     mViewHolder.mInstructorBioView.setText(mainInstructor.getBio());

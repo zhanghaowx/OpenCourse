@@ -34,6 +34,11 @@
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible">
         </activity>
+        <activity
+            android:name=".activity.login.LoginEmailActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible">
+        </activity>
     </application>
 
 </manifest>

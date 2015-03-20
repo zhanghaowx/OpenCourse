@@ -58,8 +58,8 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
         holder.mCourseShortSummaryView.setText(courseCard.getShortSummary());
         Picasso.with(holder.mCourseImageView.getContext())
                 .load(courseCard.getBannerImage())
-                .error(R.drawable.placeholder_card_view)
-                .placeholder(R.drawable.placeholder_card_view)
+                .error(R.drawable.placeholder_image)
+                .placeholder(R.drawable.placeholder_image)
                 .into(holder.mCourseImageView);
 
         if (courseCard.getInstructors() != null &&
@@ -68,8 +68,8 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
 
             Picasso.with(holder.mInstructorImageView.getContext())
                     .load(mainInstructor.getPhoto())
-                    .error(R.drawable.placeholder_user_profile_picture)
-                    .placeholder(R.drawable.placeholder_user_profile_picture)
+                    .error(R.drawable.placeholder_image_user_profile)
+                    .placeholder(R.drawable.placeholder_image_user_profile)
                     .into(holder.mInstructorImageView);
         } else {
             Log.d(TAG, String.format("Instructor information is not found for course at position #%d", position));

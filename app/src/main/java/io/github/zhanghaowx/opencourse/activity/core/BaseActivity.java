@@ -10,6 +10,8 @@ import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.Window;
 
+import io.github.zhanghaowx.opencourse.R;
+
 /**
  * This is the base class for any activity that contains
  * one fragment
@@ -51,14 +53,18 @@ public abstract class BaseActivity extends ActionBarActivity {
      *
      * @return
      */
-    protected abstract int getEnterTransition();
+    protected int getEnterTransitionId() {
+        return R.transition.default_transition;
+    }
 
     /**
      * Returns resource id for the exit transition for this activity
      *
      * @return
      */
-    protected abstract int getExitTransition();
+    protected int getExitTransition() {
+        return R.transition.default_transition;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +86,7 @@ public abstract class BaseActivity extends ActionBarActivity {
         }
 
         setContentView(getLayoutId());
-        setToolbar(getToolbarId());
+        setupToolbar(getToolbarId());
     }
 
     /**
@@ -89,7 +95,7 @@ public abstract class BaseActivity extends ActionBarActivity {
     private void setupTransition() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             TransitionInflater inflater = TransitionInflater.from(this);
-            Transition enterTransition = inflater.inflateTransition(getEnterTransition());
+            Transition enterTransition = inflater.inflateTransition(getEnterTransitionId());
             Transition exitTransition = inflater.inflateTransition(getExitTransition());
 
             getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
@@ -103,7 +109,7 @@ public abstract class BaseActivity extends ActionBarActivity {
      *
      * @param toolbarId
      */
-    private void setToolbar(int toolbarId) {
+    private void setupToolbar(int toolbarId) {
         mToolbar = (Toolbar) findViewById(toolbarId);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);

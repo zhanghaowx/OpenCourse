@@ -65,7 +65,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginBottom="-30dp"
             android:layout_marginRight="30dp"
-            android:background="@drawable/background_circle_pink_60dp"
+            android:background="@drawable/background_button_circle_pink_60dp"
             android:src="@drawable/ic_favorite_outline_white_36dp"/>
 
         <RelativeLayout
@@ -84,7 +84,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/placeholder_user_profile_picture"
+                android:src="@drawable/placeholder_image_user_profile"
                 android:transitionName="course:detail:instructor:image"/>
 
             <RelativeLayout
@@ -109,11 +109,11 @@
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/padding_sixteen"
                     android:layout_toRightOf="@+id/course_detail_instructor_name"
                     android:gravity="center_vertical"
                     android:max="5"
                     android:numStars="5"
+                    android:paddingTop="@dimen/padding_sixteen"
                     android:rating="0.0"
                     android:stepSize="0.0"/>
 
@@ -122,9 +122,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/course_detail_instructor_name"
+                    android:fontFamily="sans-serif-light"
                     android:paddingLeft="@dimen/padding_sixteen"
                     android:text="Instructor"
-                    android:fontFamily="sans-serif-light"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="@dimen/text_size_twelve"/>
 

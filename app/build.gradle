@@ -47,5 +47,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.2.2'
     // Parse
     compile 'com.parse.bolts:bolts-android:1.+'
+    // Icon Package
+    compile 'com.github.theDazzler:droidicon:0.1.7'
 
 }

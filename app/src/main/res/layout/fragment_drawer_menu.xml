@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/drawer_menu_header_image_height"
         android:scaleType="centerCrop"
-        android:src="@drawable/placeholder_title_image"
+        android:src="@drawable/placeholder_image_banner"
         android:transitionName="course:detail:header:image" />
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,7 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-32dp"
         android:elevation="@dimen/elevation_ten"
-        android:src="@drawable/placeholder_user_profile_picture"
+        android:src="@drawable/placeholder_image_user_profile"
         app:border_color="#FFFFFF"
         app:border_width="2dp" />
 
