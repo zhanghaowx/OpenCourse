@@ -36,7 +36,7 @@
             android:padding="@dimen/padding_two"
             android:text="User Name"
             android:textColor="@color/black"
-            android:textSize="@dimen/twenty"
+            android:textSize="@dimen/text_size_twenty"
             android:textStyle="bold"/>
 
         <TextView
@@ -51,11 +51,15 @@
 
     <Button
         android:id="@+id/user_profile_log_out"
+        style="?android:textAppearance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/margin_sixteen"
-        android:background="@android:color/holo_red_light"
-        android:text="@string/action_log_out"/>
+        android:background="@color/googleplus"
+        android:paddingLeft="@dimen/padding_sixteen"
+        android:text="@string/action_log_out"
+        android:textStyle="bold"/>
+
 </RelativeLayout>

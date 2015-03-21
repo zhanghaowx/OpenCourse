@@ -38,6 +38,6 @@
         android:paddingRight="@dimen/padding_four"
         android:text="999"
         android:textColor="@android:color/white"
-        android:textSize="10dp"/>
+        android:textSize="@dimen/text_size_ten"/>
 
 </RelativeLayout>

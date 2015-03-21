@@ -32,6 +32,7 @@ public class UserProfileFragment extends BaseFragment {
         mUserProfileImageView = (ImageView) rootView.findViewById(R.id.user_profile_image);
 
         mUserLogOutButton = (Button) rootView.findViewById(R.id.user_profile_log_out);
+        mUserLogOutButton.setCompoundDrawables(createIcon("fa-sign-out"), null, null, null);
         mUserLogOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

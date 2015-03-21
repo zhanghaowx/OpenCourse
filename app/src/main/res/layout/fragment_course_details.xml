@@ -73,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/course_detail_title_container"
+            android:layout_marginBottom="5dp"
             android:background="@android:color/white"
             android:orientation="vertical">
 
@@ -148,10 +149,17 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/course_detail_instructor_info_container"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_six"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_sixteen"
+                android:textStyle="bold"
+                android:text="Course Summary"/>
 
             <TextView
                 android:id="@+id/course_detail_course_summary"
@@ -159,7 +167,6 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 android:padding="@dimen/sixteen"
-                android:text="Course Summary"
                 android:textColor="@android:color/black"/>
         </LinearLayout>
 
@@ -169,10 +176,17 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/course_detail_summary_container"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_six"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_sixteen"
+                android:textStyle="bold"
+                android:text="Frequently Asked Questions"/>
 
             <TextView
                 android:id="@+id/course_detail_course_faq"
@@ -180,7 +194,6 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 android:padding="@dimen/sixteen"
-                android:text="Course FAQ"
                 android:textColor="@android:color/black"/>
         </LinearLayout>
     </RelativeLayout>
