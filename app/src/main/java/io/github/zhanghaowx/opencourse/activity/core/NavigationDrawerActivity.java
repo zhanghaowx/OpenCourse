@@ -6,6 +6,7 @@ import android.support.v4.widget.DrawerLayout;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.activity.login.LoginActivity;
+import io.github.zhanghaowx.opencourse.activity.user.UserProfileActivity;
 import io.github.zhanghaowx.opencourse.fragment.core.NavigationDrawerFragment;
 import io.github.zhanghaowx.opencourse.model.user.User;
 
@@ -15,6 +16,7 @@ import io.github.zhanghaowx.opencourse.model.user.User;
 public abstract class NavigationDrawerActivity extends BaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     private static final int REQUEST_LOGIN = 0;
+    private static final int REQUEST_LOGOUT = 1;
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
@@ -34,12 +36,13 @@ public abstract class NavigationDrawerActivity extends BaseActivity implements N
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        boolean isUserLoggedIn = User.IsLoggedIn(this);
+        boolean isUserLoggedIn = User.isLoggedIn(this);
 
         switch (position) {
             case 0:
                 if (isUserLoggedIn) {
-
+                    Intent intent = new Intent(this, UserProfileActivity.class);
+                    startActivityForResult(intent, REQUEST_LOGOUT);
                 } else {
                     Intent intent = new Intent(this, LoginActivity.class);
                     startActivityForResult(intent, REQUEST_LOGIN);
@@ -51,7 +54,7 @@ public abstract class NavigationDrawerActivity extends BaseActivity implements N
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_LOGIN) {
+        if (requestCode == REQUEST_LOGIN || requestCode == REQUEST_LOGOUT) {
             mNavigationDrawerFragment.requestUpdateMenu();
         }
     }

@@ -8,10 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.thedazzler.droidicon.IconicFontDrawable;
-
 import io.github.zhanghaowx.opencourse.R;
-import io.github.zhanghaowx.opencourse.activity.login.LoginActivity;
 import io.github.zhanghaowx.opencourse.activity.login.LoginEmailActivity;
 import io.github.zhanghaowx.opencourse.fragment.core.BaseFragment;
 

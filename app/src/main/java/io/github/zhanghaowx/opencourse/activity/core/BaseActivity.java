@@ -14,57 +14,11 @@ import io.github.zhanghaowx.opencourse.R;
 
 /**
  * This is the base class for any activity that contains
- * one fragment
+ * one fragment and an optional action bar
  */
 public abstract class BaseActivity extends ActionBarActivity {
 
     protected Toolbar mToolbar;
-
-    /**
-     * Create a fragment for this activity.
-     *
-     * @return created fragment
-     */
-    protected abstract Fragment getFragment();
-
-    /**
-     * Get the ID for above fragment
-     *
-     * @return
-     */
-    protected abstract int getFragmentId();
-
-    /**
-     * Returns the layout resource identifier for this activity
-     *
-     * @return
-     */
-    protected abstract int getLayoutId();
-
-    /**
-     * Returns resource id for tool bar
-     *
-     * @return
-     */
-    protected abstract int getToolbarId();
-
-    /**
-     * Returns resource id for the enter transition of this activity
-     *
-     * @return
-     */
-    protected int getEnterTransitionId() {
-        return R.transition.default_transition;
-    }
-
-    /**
-     * Returns resource id for the exit transition for this activity
-     *
-     * @return
-     */
-    protected int getExitTransition() {
-        return R.transition.default_transition;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +59,27 @@ public abstract class BaseActivity extends ActionBarActivity {
     }
 
     /**
+     * Get the ID for fragment when inflated from XML
+     *
+     * @return
+     */
+    protected abstract int getFragmentId();
+
+    /**
+     * Create a fragment for this activity.
+     *
+     * @return created fragment
+     */
+    protected abstract Fragment getFragment();
+
+    /**
+     * Returns the layout resource identifier for this activity
+     *
+     * @return
+     */
+    protected abstract int getLayoutId();
+
+    /**
      * Setup action tool bar
      *
      * @param toolbarId
@@ -115,5 +90,32 @@ public abstract class BaseActivity extends ActionBarActivity {
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
+    }
+
+    /**
+     * Returns resource id for tool bar
+     *
+     * @return
+     */
+    protected int getToolbarId() {
+        return 0; // No toolbar by default
+    }
+
+    /**
+     * Returns resource id for the enter transition of this activity
+     *
+     * @return
+     */
+    protected int getEnterTransitionId() {
+        return R.transition.default_transition;
+    }
+
+    /**
+     * Returns resource id for the exit transition for this activity
+     *
+     * @return
+     */
+    protected int getExitTransition() {
+        return R.transition.default_transition;
     }
 }

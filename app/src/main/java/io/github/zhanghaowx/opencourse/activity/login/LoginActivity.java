@@ -27,15 +27,10 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    protected int getToolbarId() {
-        return 0;
-    }
-
-    @Override
     protected void onPostResume() {
         super.onPostResume();
 
-        if (User.IsLoggedIn(this)) {
+        if (User.isLoggedIn(this)) {
             finish();
         }
     }

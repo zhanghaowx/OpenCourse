@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.github.zhanghaowx.opencourse.R;
-import io.github.zhanghaowx.opencourse.debug.Experimental;
 import io.github.zhanghaowx.opencourse.fragment.core.BaseFragment;
 import io.github.zhanghaowx.opencourse.utils.SharedPreferenceNames;
 

@@ -35,11 +35,6 @@ public class LoginEmailActivity extends BaseActivity {
     protected int getLayoutId() {
         return R.layout.activity_default;
     }
-
-    @Override
-    protected int getToolbarId() {
-        return 0;
-    }
 }
 
 

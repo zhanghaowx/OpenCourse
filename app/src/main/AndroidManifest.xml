@@ -34,6 +34,10 @@
             android:label="@string/title_activity_login">
         </activity>
         <activity
+            android:name=".activity.user.UserProfileActivity"
+            android:label="@string/title_activity_user_profile">
+        </activity>
+        <activity
             android:name=".activity.login.LoginEmailActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="stateVisible|adjustPan">
