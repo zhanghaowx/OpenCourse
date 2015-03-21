@@ -3,6 +3,7 @@ package io.github.zhanghaowx.opencourse.activity.core;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.Toast;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.activity.login.LoginActivity;
@@ -48,6 +49,8 @@ public abstract class NavigationDrawerActivity extends BaseActivity implements N
                     startActivityForResult(intent, REQUEST_LOGIN);
                 }
                 break;
+            default:
+                Toast.makeText(this, "In Developing ... ", Toast.LENGTH_SHORT).show();
         }
     }
 
