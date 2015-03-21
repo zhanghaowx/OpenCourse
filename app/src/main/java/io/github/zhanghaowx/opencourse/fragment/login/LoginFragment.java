@@ -49,14 +49,4 @@ public class LoginFragment extends BaseFragment {
 
         return rootView;
     }
-
-    private IconicFontDrawable createIcon(String iconName) {
-        IconicFontDrawable icon = new IconicFontDrawable(getActivity().getApplicationContext());
-        icon.setIcon(iconName);
-        icon.setBounds(0, 0, 48, 48);
-        icon.setIconColor(getResources().getColor(R.color.white));
-
-        return icon;
-    }
-
 }

@@ -31,13 +31,12 @@
         <activity android:name=".activity.course.CourseDetailActivity"/>
         <activity
             android:name=".activity.login.LoginActivity"
-            android:label="@string/title_activity_login"
-            android:windowSoftInputMode="adjustResize|stateVisible">
+            android:label="@string/title_activity_login">
         </activity>
         <activity
             android:name=".activity.login.LoginEmailActivity"
             android:label="@string/title_activity_login"
-            android:windowSoftInputMode="adjustResize|stateVisible">
+            android:windowSoftInputMode="stateVisible|adjustPan">
         </activity>
     </application>
 

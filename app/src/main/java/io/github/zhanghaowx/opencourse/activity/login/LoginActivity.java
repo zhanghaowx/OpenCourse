@@ -5,9 +5,10 @@ import android.support.v4.app.Fragment;
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.activity.core.BaseActivity;
 import io.github.zhanghaowx.opencourse.fragment.login.LoginFragment;
+import io.github.zhanghaowx.opencourse.model.user.User;
 
 /**
- * Created by hao on 3/19/15.
+ * Login page
  */
 public class LoginActivity extends BaseActivity {
     @Override
@@ -28,5 +29,14 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected int getToolbarId() {
         return 0;
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        if (User.IsLoggedIn(this)) {
+            finish();
+        }
     }
 }

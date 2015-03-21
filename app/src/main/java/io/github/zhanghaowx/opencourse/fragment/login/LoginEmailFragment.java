@@ -85,6 +85,8 @@ public class LoginEmailFragment extends BaseFragment implements LoaderManager.Lo
         });
 
         Button mEmailSignInButton = (Button) rootView.findViewById(R.id.email_sign_in_button);
+        mEmailSignInButton.setCompoundDrawables(createIcon("fa-envelope"), null, null, null);
+
         mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -297,7 +299,7 @@ public class LoginEmailFragment extends BaseFragment implements LoaderManager.Lo
             mAuthTask = null;
             showProgress(false);
 
-            if (success && !Experimental.ENABLED) {
+            if (success) {
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
                 sp.edit().putString(SharedPreferenceNames.PREF_USER_SESSION_ID, "Fake_Session_Id").apply();
 

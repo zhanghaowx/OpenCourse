@@ -1,15 +1,13 @@
 package io.github.zhanghaowx.opencourse.activity.core;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.activity.login.LoginActivity;
 import io.github.zhanghaowx.opencourse.fragment.core.NavigationDrawerFragment;
-import io.github.zhanghaowx.opencourse.utils.SharedPreferenceNames;
+import io.github.zhanghaowx.opencourse.model.user.User;
 
 /**
  * Creates an activity that supports navigation drawer menu
@@ -36,12 +34,11 @@ public abstract class NavigationDrawerActivity extends BaseActivity implements N
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        String userLoginSessionId = sp.getString(SharedPreferenceNames.PREF_USER_SESSION_ID, null);
+        boolean isUserLoggedIn = User.IsLoggedIn(this);
 
         switch (position) {
             case 0:
-                if (userLoginSessionId != null) {
+                if (isUserLoggedIn) {
 
                 } else {
                     Intent intent = new Intent(this, LoginActivity.class);
