@@ -1,19 +1,19 @@
-package io.github.zhanghaowx.opencourse.activity.course;
+package io.github.zhanghaowx.opencourse.activity;
 
 import android.support.v4.app.Fragment;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.activity.core.NavigationDrawerActivity;
-import io.github.zhanghaowx.opencourse.fragment.course.CourseListHomeFragment;
+import io.github.zhanghaowx.opencourse.fragment.HomepageFragment;
 
 /**
  * For course list activity
  */
-public class CourseListActivity extends NavigationDrawerActivity {
+public class HomepageActivity extends NavigationDrawerActivity {
 
     @Override
     protected Fragment getFragment() {
-        return new CourseListHomeFragment();
+        return new HomepageFragment();
     }
 
     @Override

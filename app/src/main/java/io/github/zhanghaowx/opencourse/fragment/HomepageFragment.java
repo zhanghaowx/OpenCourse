@@ -1,4 +1,4 @@
-package io.github.zhanghaowx.opencourse.fragment.course;
+package io.github.zhanghaowx.opencourse.fragment;
 
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -17,10 +17,10 @@ import io.github.zhanghaowx.opencourse.adapter.course.CourseListAdapter;
 import io.github.zhanghaowx.opencourse.fragment.core.BaseFragment;
 
 /**
- * fragment for course list
+ * fragment for homepage
  */
-public class CourseListHomeFragment extends BaseFragment {
-    private static final String TAG = CourseListHomeFragment.class.getSimpleName();
+public class HomepageFragment extends BaseFragment {
+    private static final String TAG = HomepageFragment.class.getSimpleName();
 
     private View mViewCourseList;
     private ViewPager mViewPager;
