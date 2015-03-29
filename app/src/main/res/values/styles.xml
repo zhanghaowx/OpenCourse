@@ -8,12 +8,5 @@
         <item name="colorPrimary">@color/theme_default_primary</item>
         <item name="colorPrimaryDark">@color/theme_default_primary_dark</item>
         <item name="colorAccent">@color/theme_default_light</item>
-        <!-- Action bar -->
-        <item name="android:actionBarStyle">@style/Theme.OpenCourse.ActionBar</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <style name="Theme.OpenCourse.ActionBar" parent="style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="elevation">@dimen/zero</item>
     </style>
 </resources>

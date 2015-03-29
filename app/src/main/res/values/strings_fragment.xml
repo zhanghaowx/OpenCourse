@@ -12,7 +12,7 @@
 
     <!-- Course / Sections Tabs -->
     <string name="fragment_courseList_title_popular">热门课程</string>
-    <string name="fragment_courseList_title_nearby">附近课程</string>
+    <string name="fragment_courseList_title_nearby">分类</string>
     <string name="fragment_courseList_title_favorite">收藏</string>
 
     <string-array name="fragment_courseList_sections_tabs_title">

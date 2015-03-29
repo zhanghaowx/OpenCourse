@@ -28,7 +28,7 @@ public class HomepageFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mViewCourseList = inflater.inflate(R.layout.fragment_default, container, false);
+        mViewCourseList = inflater.inflate(R.layout.fragment_home, container, false);
 
         mViewPager = (ViewPager) mViewCourseList.findViewById(R.id.fragment_home_view_pager);
         mViewPager.setAdapter(new HomepageAdapter(getToolbarMenuTitles(), getChildFragmentManager()));
