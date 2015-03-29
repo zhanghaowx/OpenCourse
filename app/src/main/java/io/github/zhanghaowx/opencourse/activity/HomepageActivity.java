@@ -27,11 +27,6 @@ public class HomepageActivity extends NavigationDrawerActivity {
     }
 
     @Override
-    protected int getToolbarId() {
-        return R.id.activity_with_drawer_menu_toolbar;
-    }
-
-    @Override
     protected int getEnterTransitionId() {
         return R.transition.default_transition;
     }
@@ -43,7 +38,7 @@ public class HomepageActivity extends NavigationDrawerActivity {
 
     @Override
     protected int getActionBarTitle() {
-        return R.string.course_list_actionbar_title;
+        return R.string.home_actionbar_title;
     }
 
 }

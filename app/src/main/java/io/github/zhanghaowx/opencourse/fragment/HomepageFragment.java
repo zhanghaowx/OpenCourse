@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import io.github.zhanghaowx.opencourse.R;
-import io.github.zhanghaowx.opencourse.adapter.course.CourseListAdapter;
+import io.github.zhanghaowx.opencourse.adapter.HomepageAdapter;
 import io.github.zhanghaowx.opencourse.fragment.core.BaseFragment;
 
 /**
@@ -31,7 +31,7 @@ public class HomepageFragment extends BaseFragment {
         mViewCourseList = inflater.inflate(R.layout.fragment_default, container, false);
 
         mViewPager = (ViewPager) mViewCourseList.findViewById(R.id.fragment_home_view_pager);
-        mViewPager.setAdapter(new CourseListAdapter(getToolbarMenuTitles(), getChildFragmentManager()));
+        mViewPager.setAdapter(new HomepageAdapter(getToolbarMenuTitles(), getChildFragmentManager()));
 
         mPagerSlidingTabStrip = (PagerSlidingTabStrip) mViewCourseList.findViewById(R.id.fragment_home_pager_sliding_tab);
         Resources res = getActivity().getResources();

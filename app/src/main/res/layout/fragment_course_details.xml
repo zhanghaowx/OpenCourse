@@ -123,7 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/course_detail_instructor_name"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="@string/font_default_light"
                     android:paddingLeft="@dimen/padding_sixteen"
                     android:text="Instructor"
                     android:textColor="@android:color/darker_gray"

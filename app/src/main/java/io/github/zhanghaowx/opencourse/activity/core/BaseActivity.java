@@ -14,11 +14,9 @@ import io.github.zhanghaowx.opencourse.R;
 
 /**
  * This is the base class for any activity that contains
- * one fragment and an optional action bar
+ * one fragment and an action bar
  */
 public abstract class BaseActivity extends ActionBarActivity {
-
-    protected Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +38,6 @@ public abstract class BaseActivity extends ActionBarActivity {
         }
 
         setContentView(getLayoutId());
-        setupToolbar(getToolbarId());
     }
 
     /**
@@ -78,28 +75,6 @@ public abstract class BaseActivity extends ActionBarActivity {
      * @return
      */
     protected abstract int getLayoutId();
-
-    /**
-     * Setup action tool bar
-     *
-     * @param toolbarId
-     */
-    private void setupToolbar(int toolbarId) {
-        mToolbar = (Toolbar) findViewById(toolbarId);
-        if (mToolbar != null) {
-            setSupportActionBar(mToolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        }
-    }
-
-    /**
-     * Returns resource id for tool bar
-     *
-     * @return
-     */
-    protected int getToolbarId() {
-        return 0; // No toolbar by default
-    }
 
     /**
      * Returns resource id for the enter transition of this activity

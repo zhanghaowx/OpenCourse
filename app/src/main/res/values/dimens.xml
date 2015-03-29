@@ -112,6 +112,11 @@
     <dimen name="course_detail_header_image_height">240dp</dimen>
     <dimen name="course_detail_show_fab_offset">30dp</dimen>
 
+    <!-- Favorite Course -->
+    <dimen name="user_favorite_course_height">96dp</dimen>
+    <dimen name="user_favorite_course_thumbnail_image_height">96dp</dimen>
+    <dimen name="user_favorite_course_thumbnail_image_width">96dp</dimen>
+
     <!-- User -->
     <dimen name="user_profile_header_image_height">240dp</dimen>
 

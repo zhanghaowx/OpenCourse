@@ -55,5 +55,4 @@ public class BaseFragment extends Fragment {
 
         return icon;
     }
-
 }

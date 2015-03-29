@@ -1,4 +1,4 @@
-package io.github.zhanghaowx.opencourse.adapter.course;
+package io.github.zhanghaowx.opencourse.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,14 +7,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
 import io.github.zhanghaowx.opencourse.fragment.course.CourseListFragment;
+import io.github.zhanghaowx.opencourse.fragment.user.UserFavoriteCourseFragment;
 
 /**
  * Adapter that creates necessary view objects for CourseListFragment
  */
-public class CourseListAdapter extends FragmentPagerAdapter {
+public class HomepageAdapter extends FragmentPagerAdapter {
     private List<String> mListTitleTabs;
 
-    public CourseListAdapter(List<String> listTitleTabs, FragmentManager childFragmentManager) {
+    public HomepageAdapter(List<String> listTitleTabs, FragmentManager childFragmentManager) {
         super(childFragmentManager);
         this.mListTitleTabs = listTitleTabs;
     }
@@ -43,7 +44,7 @@ public class CourseListAdapter extends FragmentPagerAdapter {
             case 1:
                 return CourseListFragment.newInstance();
             case 2:
-                return CourseListFragment.newInstance();
+                return UserFavoriteCourseFragment.newInstance();
             default:
                 return new Fragment();
         }
