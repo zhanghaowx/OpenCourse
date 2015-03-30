@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 
 import io.github.zhanghaowx.opencourse.R;
 import io.github.zhanghaowx.opencourse.activity.core.NavigationDrawerActivity;
-import io.github.zhanghaowx.opencourse.fragment.HomepageFragment;
+import io.github.zhanghaowx.opencourse.fragment.course.CourseListFragment;
 
 /**
  * For course list activity
@@ -13,7 +13,7 @@ public class HomepageActivity extends NavigationDrawerActivity {
 
     @Override
     protected Fragment getFragment() {
-        return new HomepageFragment();
+        return new CourseListFragment();
     }
 
     @Override
@@ -40,5 +40,4 @@ public class HomepageActivity extends NavigationDrawerActivity {
     protected int getActionBarTitle() {
         return R.string.home_actionbar_title;
     }
-
 }
