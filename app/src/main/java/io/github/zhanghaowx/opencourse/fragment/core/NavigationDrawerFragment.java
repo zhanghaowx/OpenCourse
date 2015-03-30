@@ -165,8 +165,8 @@ public class NavigationDrawerFragment extends BaseFragment {
         mDrawerToggle = new ActionBarDrawerToggle(
                 getActivity(),              /* host Activity */
                 mDrawerLayout,              /* DrawerLayout object */
-                R.string.app_name,             /* "open drawer" description for accessibility */
-                R.string.app_name              /* "close drawer" description for accessibility */
+                R.string.open_drawer,       /* "open drawer" description for accessibility */
+                R.string.close_drawer       /* "close drawer" description for accessibility */
         ) {
             @Override
             public void onDrawerClosed(View drawerView) {

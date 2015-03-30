@@ -181,15 +181,6 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
         ViewHelper.setScaleY(mViewHolder.mCourseTitleView, scale);
     }
 
-    private void changeActionBarTransparency(float alpha) {
-        int baseColor = getResources().getColor(R.color.theme_default_primary);
-        ColorDrawable backgroundDrawable =
-                new ColorDrawable(ScrollUtils.getColorWithAlpha(alpha, baseColor));
-
-        BaseActivity baseActivity = (BaseActivity) getActivity();
-        baseActivity.getSupportActionBar().setBackgroundDrawable(backgroundDrawable);
-    }
-
     /**
      * Show/Hide Favorite Button
      * @param scrollY

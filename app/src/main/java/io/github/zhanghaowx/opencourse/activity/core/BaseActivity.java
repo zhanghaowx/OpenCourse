@@ -1,11 +1,11 @@
 package io.github.zhanghaowx.opencourse.activity.core;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.Window;
@@ -21,8 +21,8 @@ public abstract class BaseActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // because getWindow().requestFeature() needs to be called first
-        // so setupTransition() needs to be put before super.onCreate()
-        setupTransition();
+        // so requestFeature() needs to be put before super.onCreate()
+        requestFeature();
 
         super.onCreate(savedInstanceState);
         FragmentManager fm = getSupportFragmentManager();
@@ -38,21 +38,33 @@ public abstract class BaseActivity extends ActionBarActivity {
         }
 
         setContentView(getLayoutId());
+
+        setupTransition();
+        setupActionBar();
+    }
+
+    private void requestFeature() {
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
     }
 
     /**
      * Setup exit transition of the activity
      */
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setupTransition() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            TransitionInflater inflater = TransitionInflater.from(this);
-            Transition enterTransition = inflater.inflateTransition(getEnterTransitionId());
-            Transition exitTransition = inflater.inflateTransition(getExitTransition());
+        TransitionInflater inflater = TransitionInflater.from(this);
+        Transition enterTransition = inflater.inflateTransition(getEnterTransitionId());
+        Transition exitTransition = inflater.inflateTransition(getExitTransition());
 
-            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-            getWindow().setEnterTransition(enterTransition);
-            getWindow().setExitTransition(exitTransition);
-        }
+        getWindow().setEnterTransition(enterTransition);
+        getWindow().setExitTransition(exitTransition);
+    }
+
+    /**
+     * Setup action bar style
+     */
+    private void setupActionBar() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /**

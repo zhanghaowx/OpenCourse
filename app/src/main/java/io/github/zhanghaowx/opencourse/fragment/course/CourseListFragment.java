@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
-import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.melnykov.fab.FloatingActionButton;
@@ -83,13 +82,9 @@ public class CourseListFragment extends BaseFragment implements ObservableScroll
         BaseActivity activity = (BaseActivity) getActivity();
         ActionBar toolbar = activity.getSupportActionBar();
         if (scrollState == ScrollState.UP) {
-            if (toolbar.isShowing()) {
-                toolbar.hide();
-            }
+            showActionBar(false);
         } else if (scrollState == ScrollState.DOWN) {
-            if (!toolbar.isShowing()) {
-                toolbar.show();
-            }
+            showActionBar(true);
         }
     }
 }
