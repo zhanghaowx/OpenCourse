@@ -12,13 +12,7 @@
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
 
-        <item name="actionBarStyle">@style/Theme.OpenCourse.ActionBar</item>
         <item name="drawerArrowStyle">@style/Theme.OpenCourse.DrawerArrowStyle</item>
-    </style>
-
-    <style name="Theme.OpenCourse.ActionBar" parent="style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="elevation">@dimen/zero</item><!-- Support library compatibility -->
-        <item name="android:elevation">@dimen/zero</item><!-- Remove shadow below action bar -->
     </style>
 
     <style name="Theme.OpenCourse.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">

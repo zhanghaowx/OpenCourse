@@ -19,6 +19,16 @@ import io.github.zhanghaowx.opencourse.R;
  */
 public abstract class BaseActivity extends ActionBarActivity {
 
+    protected Toolbar mToolbar;
+
+    /**
+     * Returns the custom toolbar
+     * @return
+     */
+    public Toolbar getToolbar() {
+        return mToolbar;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // because getWindow().requestFeature() needs to be called first
@@ -65,9 +75,9 @@ public abstract class BaseActivity extends ActionBarActivity {
      * Setup action bar style
      */
     private void setupActionBar() {
-        Toolbar customToolbar = (Toolbar) findViewById(getToolbarId());
-        if (customToolbar != null) {
-            setSupportActionBar(customToolbar);
+        mToolbar = (Toolbar) findViewById(getToolbarId());
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }

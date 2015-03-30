@@ -5,11 +5,18 @@
              android:layout_height="match_parent"
              android:orientation="vertical">
 
-    <com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView
-        android:id="@+id/fragment_recycler_view_content_main"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"/>
+        android:orientation="vertical">
+
+        <com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView
+            android:id="@+id/fragment_recycler_view_content_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+
+    </LinearLayout>
 
     <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fragment_recycler_view_float_action_button"

@@ -65,19 +65,36 @@ public class BaseFragment extends Fragment {
     }
 
     /**
-     * Show hide action bar
+     * Show hide action bar with custom animations
+     *
      * @param isVisible
      */
     protected void showActionBar(boolean isVisible) {
         BaseActivity baseActivity = (BaseActivity) getActivity();
-        ActionBar actionBar = baseActivity.getSupportActionBar();
+        final ActionBar actionBar = baseActivity.getSupportActionBar();
         if (isVisible) {
             if (!actionBar.isShowing()) {
-                actionBar.show();
+                baseActivity.getToolbar()
+                        .animate()
+                        .translationY(0)
+                        .withStartAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                actionBar.show();
+                            }
+                        });
             }
         } else {
             if (actionBar.isShowing()) {
-                actionBar.hide();
+                baseActivity.getToolbar()
+                        .animate()
+                        .translationY(-baseActivity.getToolbar().getBottom())
+                        .withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                actionBar.hide();
+                            }
+                        });
             }
         }
     }

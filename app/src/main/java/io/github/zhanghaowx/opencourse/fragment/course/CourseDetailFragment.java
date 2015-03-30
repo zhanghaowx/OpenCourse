@@ -161,7 +161,6 @@ public class CourseDetailFragment extends BaseFragment implements ObservableScro
 
     private void translateOverlayAndImage(int scrollY) {
         // Translate overlay and image
-
         ViewHelper.setTranslationY(mViewHolder.mCourseImageOverlayView, scrollY / 4);
         ViewHelper.setTranslationY(mViewHolder.mCourseImageView, scrollY / 4);
 

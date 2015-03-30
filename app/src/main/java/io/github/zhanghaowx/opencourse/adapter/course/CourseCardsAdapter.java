@@ -52,7 +52,7 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
         holder.itemView.setTag(courseCard);
 
         /**
-         * Download and show images in card
+         * Download and show images/info in card
          */
         holder.mCourseTitleView.setText(courseCard.getTitle());
         holder.mCourseShortSummaryView.setText(courseCard.getShortSummary());
@@ -74,6 +74,13 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
         } else {
             Log.d(TAG, String.format("Instructor information is not found for course at position #%d", position));
         }
+
+        // handles first card and the rest differently
+        if (position > 0) {
+            holder.removeSpacer();
+        } else {
+            holder.addSpacer();
+        }
     }
 
     @Override
@@ -85,9 +92,8 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
      * Holds a card view for a course
      */
     public static class CourseCardViewHolder extends RecyclerView.ViewHolder {
-        // Parent for all other views
-        private CardView mCardView;
 
+        private View mActionBarSpacer;
         private ImageView mCourseImageView;
         private ImageView mInstructorImageView;
         private TextView mCourseTitleView;
@@ -100,14 +106,15 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
             mActivity = activity;
 
             // Load view components
-            mCardView = (CardView) itemView.findViewById(R.id.course_card_view);
-            mCourseImageView = (ImageView) mCardView.findViewById(R.id.course_card_view_image);
-            mCourseTitleView = (TextView) mCardView.findViewById(R.id.course_card_view_title);
-            mCourseShortSummaryView = (TextView) mCardView.findViewById(R.id.course_card_view_short_summary);
+            CardView rootView = (CardView) itemView.findViewById(R.id.course_card_view);
+            mActionBarSpacer = itemView.findViewById(R.id.course_card_view_actionbar_spacer);
+            mCourseImageView = (ImageView) rootView.findViewById(R.id.course_card_view_image);
+            mCourseTitleView = (TextView) rootView.findViewById(R.id.course_card_view_title);
+            mCourseShortSummaryView = (TextView) rootView.findViewById(R.id.course_card_view_short_summary);
 
-            mInstructorImageView = (ImageView) mCardView.findViewById(R.id.course_card_view_instructor_thumbnail);
+            mInstructorImageView = (ImageView) rootView.findViewById(R.id.course_card_view_instructor_thumbnail);
 
-            mCardView.setOnClickListener(new View.OnClickListener() {
+            rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Course course = (Course) v.getTag();
@@ -125,6 +132,18 @@ public class CourseCardsAdapter extends RecyclerView.Adapter<CourseCardsAdapter.
                     }
                 }
             });
+        }
+
+        /**
+         * Remove extra space for all cards except the first one.
+         * It would be useful when action bar is an overlay of activity content.
+         */
+        public void removeSpacer() {
+            mActionBarSpacer.setVisibility(View.GONE);
+        }
+
+        public void addSpacer() {
+            mActionBarSpacer.setVisibility(View.VISIBLE);
         }
     }
 }
