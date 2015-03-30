@@ -1,6 +1,5 @@
 package io.github.zhanghaowx.opencourse.activity.core;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,6 +22,7 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     /**
      * Returns the custom toolbar
+     *
      * @return
      */
     public Toolbar getToolbar() {
@@ -61,14 +61,15 @@ public abstract class BaseActivity extends ActionBarActivity {
     /**
      * Setup exit transition of the activity
      */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setupTransition() {
-        TransitionInflater inflater = TransitionInflater.from(this);
-        Transition enterTransition = inflater.inflateTransition(getEnterTransitionId());
-        Transition exitTransition = inflater.inflateTransition(getExitTransition());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            TransitionInflater inflater = TransitionInflater.from(this);
+            Transition enterTransition = inflater.inflateTransition(getEnterTransitionId());
+            Transition exitTransition = inflater.inflateTransition(getExitTransition());
 
-        getWindow().setEnterTransition(enterTransition);
-        getWindow().setExitTransition(exitTransition);
+            getWindow().setEnterTransition(enterTransition);
+            getWindow().setExitTransition(exitTransition);
+        }
     }
 
     /**

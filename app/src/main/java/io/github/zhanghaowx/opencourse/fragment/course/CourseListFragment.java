@@ -29,7 +29,6 @@ public class CourseListFragment extends BaseFragment implements ObservableScroll
 
     private View mViewRecyclerCardsView;
     private ObservableRecyclerView mRecyclerView;
-    private FloatingActionButton mFloatingActionButton;
 
     private boolean mEnableHideActionBar = false;
 
@@ -60,9 +59,6 @@ public class CourseListFragment extends BaseFragment implements ObservableScroll
             }
         });
         mRecyclerView.setAdapter(courseCardsAdapter);
-
-        mFloatingActionButton = (FloatingActionButton) mViewRecyclerCardsView.findViewById(R.id.fragment_recycler_view_float_action_button);
-        mFloatingActionButton.attachToRecyclerView(mRecyclerView);
 
         return mViewRecyclerCardsView;
     }
