@@ -6,17 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".DrawerLayout">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/activity_with_drawer_menu_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/activity_with_drawer_menu_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_default_primary"
+            android:minHeight="?attr/actionBarSize"
+            tools:context=".ToolBar"/>
 
         <FrameLayout
             android:id="@+id/activity_with_drawer_menu_content_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".FrameLayout"/>
-    </RelativeLayout>
+    </LinearLayout>
 
     <fragment
         android:id="@+id/activity_with_drawer_menu_navigation_drawer"

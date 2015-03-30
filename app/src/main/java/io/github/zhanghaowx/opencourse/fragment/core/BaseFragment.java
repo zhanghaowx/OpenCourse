@@ -87,7 +87,7 @@ public class BaseFragment extends Fragment {
      *
      * @param alpha
      */
-    protected void changeActionBarTransparency(float alpha) {
+    protected void setActionBarTransparency(float alpha) {
         int baseColor = getResources().getColor(R.color.theme_default_primary);
         ColorDrawable backgroundDrawable =
                 new ColorDrawable(ScrollUtils.getColorWithAlpha(alpha, baseColor));

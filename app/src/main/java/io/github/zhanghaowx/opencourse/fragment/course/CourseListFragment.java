@@ -1,7 +1,6 @@
 package io.github.zhanghaowx.opencourse.fragment.course;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.github.zhanghaowx.opencourse.R;
-import io.github.zhanghaowx.opencourse.activity.core.BaseActivity;
 import io.github.zhanghaowx.opencourse.adapter.course.CourseCardsAdapter;
 import io.github.zhanghaowx.opencourse.datasource.parse.ParseCourseSource;
 import io.github.zhanghaowx.opencourse.datasource.utils.SearchCallback;
@@ -79,8 +77,6 @@ public class CourseListFragment extends BaseFragment implements ObservableScroll
 
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
-        BaseActivity activity = (BaseActivity) getActivity();
-        ActionBar toolbar = activity.getSupportActionBar();
         if (scrollState == ScrollState.UP) {
             showActionBar(false);
         } else if (scrollState == ScrollState.DOWN) {

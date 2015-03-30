@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.Window;
@@ -64,7 +65,20 @@ public abstract class BaseActivity extends ActionBarActivity {
      * Setup action bar style
      */
     private void setupActionBar() {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar customToolbar = (Toolbar) findViewById(getToolbarId());
+        if (customToolbar != null) {
+            setSupportActionBar(customToolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    /**
+     * Returns custom resource id for tool bar
+     *
+     * @return
+     */
+    protected int getToolbarId() {
+        return 0; // No toolbar by default
     }
 
     /**

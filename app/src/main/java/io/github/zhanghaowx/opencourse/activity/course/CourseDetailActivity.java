@@ -30,6 +30,11 @@ public class CourseDetailActivity extends BaseActivity {
     }
 
     @Override
+    protected int getToolbarId() {
+        return R.id.activity_default_toolbar;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:

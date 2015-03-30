@@ -13,7 +13,7 @@ public class HomepageActivity extends NavigationDrawerActivity {
 
     @Override
     protected Fragment getFragment() {
-        return new CourseListFragment();
+        return CourseListFragment.newInstance();
     }
 
     @Override
@@ -34,6 +34,11 @@ public class HomepageActivity extends NavigationDrawerActivity {
     @Override
     protected int getExitTransition() {
         return R.transition.default_transition;
+    }
+
+    @Override
+    protected int getToolbarId() {
+        return R.id.activity_with_drawer_menu_toolbar;
     }
 
     @Override
