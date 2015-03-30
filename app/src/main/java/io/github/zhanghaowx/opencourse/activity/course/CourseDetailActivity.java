@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import io.github.zhanghaowx.opencourse.R;
-import io.github.zhanghaowx.opencourse.activity.HomepageActivity;
 import io.github.zhanghaowx.opencourse.activity.core.BaseActivity;
 import io.github.zhanghaowx.opencourse.fragment.course.CourseDetailFragment;
 
@@ -39,7 +38,7 @@ public class CourseDetailActivity extends BaseActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go back
-                Intent intent = new Intent(this, HomepageActivity.class);
+                Intent intent = new Intent(this, CourseListActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
