@@ -31,7 +31,7 @@ public class CourseListFragment extends BaseFragment implements ObservableScroll
     private ObservableRecyclerView mRecyclerView;
     private FloatingActionButton mFloatingActionButton;
 
-    private boolean mActionBarAnimationEnabled = false;
+    private boolean mEnableHideActionBar = false;
 
     public static CourseListFragment newInstance() {
         return new CourseListFragment();
@@ -70,9 +70,9 @@ public class CourseListFragment extends BaseFragment implements ObservableScroll
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
         if (scrollY > mContext.getResources().getDimensionPixelSize(R.dimen.card_view_height)) {
-            mActionBarAnimationEnabled = true;
+            mEnableHideActionBar = true;
         } else {
-            mActionBarAnimationEnabled = false;
+            mEnableHideActionBar = false;
         }
     }
 
@@ -83,12 +83,10 @@ public class CourseListFragment extends BaseFragment implements ObservableScroll
 
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
-        if (!mActionBarAnimationEnabled) {
-            return;
-        }
-
         if (scrollState == ScrollState.UP) {
-            showActionBar(false);
+            if (mEnableHideActionBar) {
+                showActionBar(false);
+            }
         } else if (scrollState == ScrollState.DOWN) {
             showActionBar(true);
         }
